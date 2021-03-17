@@ -18,12 +18,20 @@ public class TimeManager : MonoBehaviour
 
     private int frame;
 
+    private int day_count;
+
+    public bool is_day;
+
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
         state = TimeState.TIME_PLAY;
         frame = 60 * 10;
+
+        is_day = true;
+
+        day_count = 0;
     }
 
     // Update is called once per frame
@@ -59,6 +67,20 @@ public class TimeManager : MonoBehaviour
         float timer_time = (float)frame / 60;
         text.text = timer_time.ToString();
         Debug.Log(state);
+
+        day_count++;
+        if (day_count >= 600)
+        {
+            if (is_day)
+            {
+                is_day = false;
+            }
+            else
+            {
+                is_day = true;
+            }
+            day_count = 0;
+        }
     }
 }
 
