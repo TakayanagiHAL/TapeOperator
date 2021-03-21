@@ -13,9 +13,9 @@ public class WeatherManager : MonoBehaviour
 
     //天気スケジュール
     WeatherSchedule[] weatherschedule = new WeatherSchedule[] {
-        new WeatherSchedule { Age = 10.0f, weather = Weather.SNOW },
-        new WeatherSchedule { Age = 10.0f, weather = Weather.RAIN },
-        new WeatherSchedule { Age = 10.0f, weather = Weather.SUNNY },
+        new WeatherSchedule { Age = 100.0f, weather = Weather.SNOW },
+        new WeatherSchedule { Age = 100.0f, weather = Weather.RAIN },
+        new WeatherSchedule { Age = 100.0f, weather = Weather.SUNNY },
     };
 
     //早送りの倍率
@@ -156,6 +156,40 @@ public class WeatherManager : MonoBehaviour
                 //切り替えフラグオフにする
                 ChangeoverFlag = false;
             }
+
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            WeatherScheduleIndex++;
+            WeatherScheduleIndex %= 3;
+
+            //天気を変える
+            WeatherAdministratorScript.SetWeather(weatherschedule[WeatherScheduleIndex].weather);
+
+            //次の切り替わる時間を設定
+            WeatherManagerPastTime = WeatherManagerNextTime;
+            WeatherManagerNextTime += weatherschedule[WeatherScheduleIndex].Age;
+
+            //切り替えフラグオフにする
+            ChangeoverFlag = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            WeatherScheduleIndex--;
+
+            if (WeatherScheduleIndex < 0) WeatherScheduleIndex = 2;
+
+            //天気を変える
+            WeatherAdministratorScript.SetWeather(weatherschedule[WeatherScheduleIndex].weather);
+
+            //次の切り替わる時間を設定
+            WeatherManagerPastTime = WeatherManagerNextTime;
+            WeatherManagerNextTime += weatherschedule[WeatherScheduleIndex].Age;
+
+            //切り替えフラグオフにする
+            ChangeoverFlag = false;
         }
 
         //テキスト表示
