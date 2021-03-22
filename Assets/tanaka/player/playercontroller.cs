@@ -226,13 +226,12 @@ public class playercontroller : MonoBehaviour
         RaycastHit hitInfo;
 
 
-        Debug.DrawLine(transform.position + (Vector3.down * ((PlayerHeight / 2) - 0.01f)), transform.position + (Vector3.down * ((PlayerHeight / 2) - 0.01f)) + (Vector3.down * GroundCheckDistance), Color.red);
+        //Debug.DrawLine(transform.position + (Vector3.down * ((PlayerHeight / 2) - 0.01f)), transform.position + (Vector3.down * ((PlayerHeight / 2) - 0.01f)) + (Vector3.down * GroundCheckDistance), Color.red);
         if (Physics.Raycast(transform.position + (Vector3.down * ((PlayerHeight / 2) - 0.01f)), Vector3.down, out hitInfo, GroundCheckDistance))
         {
             GroundNormal = hitInfo.normal;
             IsGrounded = true;
             rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
-            Debug.Log("‚Í‚¢‚½‚¨");
         }
         else
         {
