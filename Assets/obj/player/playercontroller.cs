@@ -5,11 +5,11 @@ using UnityEngine;
 public class playercontroller : MonoBehaviour
 {
 
-    public float BaseJumpPower = 12f;   //ジャンプ力
-    public float GravityMultiplier = 6f;    //重力乗数
-    public float MoveSpeed = 8f;    //移動
+    public float BaseJumpPower = 8.5f;   //ジャンプ力
+    public float GravityMultiplier = 10f;    //重力乗数
+    public float MoveSpeed = 6f;    //移動
     public float GroundCheckDistance = 0.1f;  //下方向へのレイの長さ
-    public float jumpTime = 0.25f; //ジャンプ時間
+    public float jumpTime = 0.35f; //ジャンプ時間
 
     private float Direction = 0.0f; 
     private bool IsGrounded = false;  
@@ -232,8 +232,6 @@ public class playercontroller : MonoBehaviour
             GroundNormal = hitInfo.normal;
             IsGrounded = true;
             rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
-
-
         }
         else
         {
