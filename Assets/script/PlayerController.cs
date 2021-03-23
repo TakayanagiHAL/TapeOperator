@@ -29,15 +29,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        float Hori = Input.GetAxis("Horizontal");
+
         // カーソルキーの入力を取得
         //右移動
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Hori > 0)
         {
             Direction = 1.0f;
 
         }
         //左移動
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Hori < 0)
         {
             Direction = -1.0f;
         }
@@ -66,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (isGround)
         {
             //ジャンプ
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump")) 
             {
                 jumpTimeCounter = jumpTime;
                 isJumpRise = true;
@@ -91,7 +93,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(Direction * jumpMoveSpeed, rb.velocity.y, 0.0f);
         }
         //押してる間上昇
-        if (Input.GetKey(KeyCode.Space) && isJumpRise)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetButton("Jump")) && isJumpRise )
         {
             //上昇時間内
             if (jumpTimeCounter > 0)
@@ -107,7 +109,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         //離した場合上昇を中止
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump"))
         {
             isJumpRise = false;
 

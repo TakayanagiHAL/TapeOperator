@@ -160,7 +160,7 @@ public class WeatherManager : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("TurnRight"))
         {
             WeatherScheduleIndex++;
             WeatherScheduleIndex %= 3;
@@ -175,7 +175,7 @@ public class WeatherManager : MonoBehaviour
             //切り替えフラグオフにする
             ChangeoverFlag = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("TurnLeft"))
         {
             WeatherScheduleIndex--;
 

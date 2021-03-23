@@ -52,13 +52,14 @@ public class playercontroller : MonoBehaviour
         //キーの直値
         // カーソルキーの入力を取得
         //右移動
-        if (Input.GetKey(KeyCode.D))
+        float Hori = Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.D) || Hori > 0)
         {
             Direction = Input.GetAxis("Horizontal");
 
         }
         //左移動
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Hori < 0)
         {
             Direction = Input.GetAxis("Horizontal");
         }
@@ -70,17 +71,17 @@ public class playercontroller : MonoBehaviour
 
         //ジャンプ
         //押したとき
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
         {
             jumpKey = 1;
         }
         //押してる間
-        else if (Input.GetKey(KeyCode.Space))
+        else if (Input.GetKey(KeyCode.Space) || Input.GetButton("Jump"))
         {
             jumpKey = 2;
         }
         //離したとき
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump"))
         {
             jumpKey = 0;
         }
@@ -245,16 +246,17 @@ public class playercontroller : MonoBehaviour
     //指定の物と当たっている間
     void OnCollisionStay(Collision other)
     {
+        float Hori = Input.GetAxis("Vertical");
         //蔦と当たっているとき
         if (other.gameObject.tag == "ivy")
         {
             //Wキーが押されていたら
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || (Hori > 0))
             {
                 isClimb = true;
             }
             //Wキーが押されていたら
-            if (Input.GetKeyUp(KeyCode.W))
+            if (Input.GetKeyUp(KeyCode.W) || ((Hori <= 0) && isClimb))
             {
                 isClimb = false;
             }
