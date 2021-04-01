@@ -25,6 +25,7 @@ public class FallBlockWork : MonoBehaviour
         size_data.Init();
         first_pos = transform.position;
         is_visible = transform.GetChild(0).GetComponent<Renderer>();
+        size_data.FillData(first_pos);
     }
 
     // Update is called once per frame
@@ -58,6 +59,7 @@ public class FallBlockWork : MonoBehaviour
             transform.position = first_pos;
             flame = 0;
             size_data.Init();
+            size_data.FillData(first_pos);
         }
 
         

@@ -145,4 +145,12 @@ public class BackData
 
         return back_data[current_data];
     }
+
+    public void FillData(Vector3 data)
+    {
+        for(int i = 0; i < data_count; i++)
+        {
+            back_data[i] = data;
+        }
+    }
 }
