@@ -116,6 +116,8 @@ public class playercontroller : MonoBehaviour
     {
         //移動方向設定
         move = Direction * CamPos.right;
+
+    
         
         //地面当たり判定
         CheckGroundStatus();
@@ -130,12 +132,13 @@ public class playercontroller : MonoBehaviour
     {
         //正規化
         if (move.magnitude > 1f) move.Normalize();
+
         //プレイヤーの向きを変える
         TurnRotation();
         //平面に沿ったベクトルの作成
         move = Vector3.ProjectOnPlane(move, GroundNormal);
 
-
+        move.z = 0.0f;
 
         //移動値設定
         rb.velocity = move * MoveSpeed + new Vector3(0.0f, rb.velocity.y, 0.0f);
