@@ -11,22 +11,26 @@ public class playercontroller : MonoBehaviour
     public float GroundCheckDistance = 0.1f;  //‰º•ûŒü‚Ö‚ÌƒŒƒC‚Ì’·‚³
     public float jumpTime = 0.35f; //ƒWƒƒƒ“ƒvŽžŠÔ
 
-    private float Direction = 0.0f; 
+    public float Direction = 0.0f; 
     private bool IsGrounded = false;  
     private float OrigGroundCheckDistance;  
     private Vector3 GroundNormal;   
 
     private Transform CamPos;
     private Vector3 move = Vector3.zero;
-    private bool isJump = false;
+    public bool isJump = false;
     private bool isJumpingCheck = false;
     private float jumpTimeCounter = 0.0f;
     private float JumpPower = 0.0f;
     private int jumpKey = 0;
-    bool isClimb = false;
+    public bool isClimb = false;
 
     private Rigidbody rb;
     private float PlayerHeight;
+
+    public Animator animator;
+
+    private Framework.State.StateMachine<playercontroller> stateMachine;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +47,8 @@ public class playercontroller : MonoBehaviour
  
         isJump = false;
 
-
+        stateMachine = new Framework.State.StateMachine<playercontroller>();
+        stateMachine.Initalize(new Player.State.Idle(),this);
     }
 
     // Update is called once per frame
@@ -109,7 +114,9 @@ public class playercontroller : MonoBehaviour
         //    jumpKey = 0;
         //}
 
+        stateMachine.OnUpdate(this);
 
+        Debug.Log(animator.GetInteger("NowState"));
     }
 
     void FixedUpdate()

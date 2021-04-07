@@ -51,7 +51,7 @@ public class WeatherAdministrator : MonoBehaviour
                 SnowEmObj.rateOverTime = 100;
                 break;
         }
-        Debug.Log(CurrentWeather);
+       // Debug.Log(CurrentWeather);
     }
 
     //天気セット
