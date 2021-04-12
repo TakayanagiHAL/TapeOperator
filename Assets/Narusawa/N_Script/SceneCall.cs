@@ -25,17 +25,17 @@ public class SceneCall : MonoBehaviour
     }
 
 
-    //タイトルを呼ぶ関数
-    public void TitleCall()
-    {
-        SceneManager.LoadScene("Title");
-    }
-
-
-    //ステージセレクトを呼ぶ関数
+    //StageSelectシーンを呼ぶ関数
     public void StageSelectCall()
     {
         SceneManager.LoadScene("StageSelect");
+    }
+
+
+    //Titleシーンを呼ぶ関数
+    public void TitleCall()
+    {
+        SceneManager.LoadScene("Title");
     }
 
 
