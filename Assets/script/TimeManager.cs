@@ -69,7 +69,7 @@ public class TimeManager : MonoBehaviour
         }
         float timer_time = (float)frame / 60;
         text.text = timer_time.ToString();
-        Debug.Log(state);
+        //Debug.Log(state);
 
         day_count++;
         if (day_count >= 600)
