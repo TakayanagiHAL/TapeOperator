@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using Chronos;
 
 public class TimeManager : MonoBehaviour
 {   
@@ -9,80 +9,57 @@ public class TimeManager : MonoBehaviour
         TIME_PLAY,
         TIME_STOP,
         TIME_BACK,
-        TIME_FAST
+        TIME_FAST,
+        TIME_POSE
     };
 
     public static TimeState state;
-
-    public Text text;
-
-    private int frame;
-
-    private int day_count;
-
-    public bool is_day;
 
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
         state = TimeState.TIME_PLAY;
-        frame = 60 * 10;
-
-        is_day = true;
-
-        day_count = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (frame > 0)
+        if(state == TimeState.TIME_POSE)
         {
-            state = TimeState.TIME_PLAY;
-
-            float rt = Input.GetAxis("FastForward");
-            float lt = Input.GetAxis("Rewind");
-            if (Input.GetKey(KeyCode.UpArrow) || ((rt > 0) && (lt > 0))) 
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if(state == TimeState.TIME_PLAY)
             {
                 state = TimeState.TIME_STOP;
-                frame--;
-            }
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
 
-            }
-            if (Input.GetKey(KeyCode.RightArrow) || ((rt > 0) && (lt <= 0)))
-            {
-                state = TimeState.TIME_FAST;
-                frame--;
-            }
-            if (Input.GetKey(KeyCode.LeftArrow) || ((rt <= 0) && (lt > 0)))
-            {
-                state = TimeState.TIME_BACK;
-                frame--;
-            }
-        }
-        else
-        {
-            state = TimeState.TIME_PLAY;
-        }
-        float timer_time = (float)frame / 60;
-        text.text = timer_time.ToString();
-        Debug.Log(state);
-
-        day_count++;
-        if (day_count >= 600)
-        {
-            if (is_day)
-            {
-                is_day = false;
+                Timekeeper.instance.Clock("obj").localTimeScale = 0.0f;
             }
             else
             {
-                is_day = true;
+                state = TimeState.TIME_PLAY;
+
+                Timekeeper.instance.Clock("obj").localTimeScale = 1.0f;
+
             }
-            day_count = 0;
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            state = TimeState.TIME_FAST;
+
+            Timekeeper.instance.Clock("obj").localTimeScale = 3.0f;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            state = TimeState.TIME_BACK;
+
+            Timekeeper.instance.Clock("obj").localTimeScale = -1.0f;
         }
     }
 }

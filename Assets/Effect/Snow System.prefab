@@ -4873,6 +4873,7 @@ GameObject:
   - component: {fileID: 4537406902815404195}
   - component: {fileID: 2755195897114954696}
   - component: {fileID: 6952713221191002578}
+  - component: {fileID: 3444721703021142708}
   m_Layer: 0
   m_Name: Snow System
   m_TagString: Untagged
@@ -9667,3 +9668,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3444721703021142708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898452480631255372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: 
+  _rewindable: 1
+  _recordingDuration: 30

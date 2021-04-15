@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 89168936923110062}
   - component: {fileID: 5869879840241091616}
   - component: {fileID: 9153199385468610644}
+  - component: {fileID: 6461532856965298701}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -96,6 +97,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IvyUpMaxPos: 15
   IvyUpSpeed: 0.45
+--- !u!114 &6461532856965298701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499706182109528045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: 
+  _rewindable: 1
+  _recordingDuration: 30
 --- !u!1 &7363929603393479242
 GameObject:
   m_ObjectHideFlags: 0
