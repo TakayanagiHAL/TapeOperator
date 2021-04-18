@@ -58,7 +58,7 @@ public class SceneCall : MonoBehaviour
     //ステージ２を呼ぶ関数
     public void Stage2Call()
     {
-        SceneManager.LoadScene("・Alpha2 sample");
+        SceneManager.LoadScene("Alpha2 sample");
         StageCounter.StageNumber = 2;
     }
 
