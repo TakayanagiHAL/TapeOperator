@@ -116,7 +116,7 @@ public class playercontroller : MonoBehaviour
 
         stateMachine.OnUpdate(this);
 
-        Debug.Log(animator.GetInteger("NowState"));
+       // Debug.Log(animator.GetInteger("NowState"));
     }
 
     void FixedUpdate()

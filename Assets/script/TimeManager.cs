@@ -14,8 +14,6 @@ public class TimeManager : MonoBehaviour
 
     public static TimeState state;
 
-    public Text text;
-
     private int frame;
 
     private int day_count;
@@ -71,9 +69,6 @@ public class TimeManager : MonoBehaviour
         {
             state = TimeState.TIME_PLAY;
         }
-        float timer_time = (float)frame / 60;
-        text.text = timer_time.ToString();
-        //Debug.Log(state);
 
         day_count++;
         if (day_count >= 600)

@@ -23,6 +23,8 @@ public class WeatherAdministrator : MonoBehaviour
     ParticleSystem.EmissionModule RainEmObj;
     ParticleSystem.EmissionModule SnowEmObj;
 
+    public WetherUI ui;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,20 +46,24 @@ public class WeatherAdministrator : MonoBehaviour
                 SnowEmObj.rateOverTime = 0;
                 break;
             case Weather.STORMY:
-
+                RainEmObj.rateOverTime = 0;
+                SnowEmObj.rateOverTime = 0;
                 break;
             case Weather.SNOW:
                 RainEmObj.rateOverTime = 0;
                 SnowEmObj.rateOverTime = 100;
                 break;
         }
-       // Debug.Log(CurrentWeather);
+        Debug.Log(CurrentWeather);
     }
 
     //天気セット
     public void SetWeather(Weather weather)
     {
-        CurrentWeather = weather;
+        if (ui.change_count == 0)
+        {
+            CurrentWeather = weather;
+        }
     }
 
     //天気取得
