@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 60972110}
   - component: {fileID: 60972112}
   - component: {fileID: 60972111}
+  - component: {fileID: 60972113}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c631245aca5de3441a03d7ae323bb570, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7c33be347521d345ba14361fb06ab04, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -244,6 +245,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60972109}
   m_CullTransparentMesh: 1
+--- !u!114 &60972113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60972109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1b0c1f9a66dcf48a94383e1fbdfadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+  - {fileID: 21300000, guid: 71e133aab76d6954fac08e0dfc263071, type: 3}
+  - {fileID: 21300000, guid: b7c33be347521d345ba14361fb06ab04, type: 3}
 --- !u!1001 &90981144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,6 +328,7 @@ GameObject:
   - component: {fileID: 445630002}
   - component: {fileID: 445630004}
   - component: {fileID: 445630003}
+  - component: {fileID: 445630005}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -380,6 +397,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445630001}
   m_CullTransparentMesh: 1
+--- !u!114 &445630005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445630001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6487de6ec756915488ddd2f498144ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  now_wether: 0
+  wetherMarks:
+  - {fileID: 1131529402}
+  - {fileID: 60972113}
+  - {fileID: 1096316990}
+  - {fileID: 747039345}
+  back_sprite:
+  - {fileID: 21300000, guid: 56044715bd8fb5d49b70bc90dcd31bfe, type: 3}
+  - {fileID: 21300000, guid: 5fc880f44704bc441bf7aa8a79c0cee6, type: 3}
+  - {fileID: 21300000, guid: 9cc94d54b335a7646a9419d002893a24, type: 3}
+  - {fileID: 21300000, guid: 47c43db90ee62a7458e6df8495b12742, type: 3}
+  front_sprite:
+  - {fileID: 21300000, guid: 6ec385e7fcabd0f41bafd480e4d25b36, type: 3}
+  - {fileID: 21300000, guid: b7c33be347521d345ba14361fb06ab04, type: 3}
+  - {fileID: 21300000, guid: 09ac66f7d409fd5429bd6f0726f707b7, type: 3}
+  - {fileID: 21300000, guid: 77c62a3f96fb76a46810a8169824dd28, type: 3}
+  change_count: 0
+  back_image: {fileID: 721397085}
+  front_image: {fileID: 1192756037}
 --- !u!1001 &676693988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -617,6 +665,7 @@ GameObject:
   - component: {fileID: 747039342}
   - component: {fileID: 747039344}
   - component: {fileID: 747039343}
+  - component: {fileID: 747039345}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -663,7 +712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c631245aca5de3441a03d7ae323bb570, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77c62a3f96fb76a46810a8169824dd28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -681,6 +730,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747039341}
   m_CullTransparentMesh: 1
+--- !u!114 &747039345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747039341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1b0c1f9a66dcf48a94383e1fbdfadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+  - {fileID: 21300000, guid: f8058ba08c70be348819e3244ae931db, type: 3}
+  - {fileID: 21300000, guid: 77c62a3f96fb76a46810a8169824dd28, type: 3}
 --- !u!1 &882433862
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,6 +1029,7 @@ GameObject:
   - component: {fileID: 1096316987}
   - component: {fileID: 1096316989}
   - component: {fileID: 1096316988}
+  - component: {fileID: 1096316990}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -1011,7 +1076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c631245aca5de3441a03d7ae323bb570, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bca6934bce7b7c94994d8c56ed78f3ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1029,6 +1094,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096316986}
   m_CullTransparentMesh: 1
+--- !u!114 &1096316990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096316986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1b0c1f9a66dcf48a94383e1fbdfadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+  - {fileID: 21300000, guid: 5c1dc89f63ab71040abc8ff149e407f5, type: 3}
+  - {fileID: 21300000, guid: bca6934bce7b7c94994d8c56ed78f3ff, type: 3}
 --- !u!1 &1131529398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1120,7 @@ GameObject:
   - component: {fileID: 1131529399}
   - component: {fileID: 1131529401}
   - component: {fileID: 1131529400}
+  - component: {fileID: 1131529402}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1086,7 +1167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c631245aca5de3441a03d7ae323bb570, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d85758187a64ab747aef6e52608e3836, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1104,6 +1185,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131529398}
   m_CullTransparentMesh: 1
+--- !u!114 &1131529402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131529398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1b0c1f9a66dcf48a94383e1fbdfadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+  - {fileID: 21300000, guid: d85758187a64ab747aef6e52608e3836, type: 3}
+  - {fileID: 21300000, guid: c631245aca5de3441a03d7ae323bb570, type: 3}
 --- !u!1 &1192756035
 GameObject:
   m_ObjectHideFlags: 0

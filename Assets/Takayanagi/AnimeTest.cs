@@ -20,7 +20,7 @@ public class AnimeTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Debug.Log(test);
+            //Debug.Log(test);
             test++;
             test %= 3;
             animator.SetInteger("TestState", test);
