@@ -43,7 +43,7 @@ namespace Player.State{
             {
                 return new Climbing();
             }
-            if (obj.Direction < 0.001f && obj.Direction > -0.001f)
+            if (obj.Direction < 0.01f && obj.Direction > -0.01f)
             {
                 return new Idle();
             }
@@ -59,7 +59,7 @@ namespace Player.State{
         public override void OnEnter(playercontroller obj)
         {
             base.OnEnter(obj);
-            //obj.animator.SetInteger("NowState", 0);
+            obj.animator.SetInteger("NowState", 0);
             Debug.Log("is idle");
         }
 

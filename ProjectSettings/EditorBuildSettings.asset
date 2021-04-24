@@ -5,13 +5,32 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
   - enabled: 1
+=======
+  - enabled: 0
+    path: "Assets/Scenes/\u03B1/Title.unity"
+    guid: 92626c0edaa5caa4292ad58131242c02
+  - enabled: 0
+>>>>>>> a2f43973bbb0746f0b66029509f45ca8cf108555
     path: "Assets/Scenes/\u03B1/Alpha sample.unity"
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/\u30D7\u30ED\u30C8\u30BF\u30A4\u30D7/GameOver.unity"
     guid: 31be3d9b1242fc445a28226c5a65e885
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/\u30D7\u30ED\u30C8\u30BF\u30A4\u30D7/GameClear.unity"
     guid: 76a6a9ad3a691b648a610b2edf1099e0
+<<<<<<< HEAD
+=======
+  - enabled: 0
+    path: "Assets/Scenes/\u03B1/Alpha2 sample.unity"
+    guid: b94d9a3fad1909844b91af48165c65e8
+  - enabled: 0
+    path: "Assets/Scenes/\u03B1/StageSelect.unity"
+    guid: 4c8ad00002552d2488c44797d684b704
+  - enabled: 1
+    path: Assets/Scenes/Template/StageTemplate.unity
+    guid: 5ee336bbcb34dee419fd24c4dc61800b
+>>>>>>> a2f43973bbb0746f0b66029509f45ca8cf108555
   m_configObjects: {}
