@@ -159,9 +159,10 @@ public class WeatherManager : MonoBehaviour
 
         }
 
-
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("TurnRight"))
+        
+        if (Input.GetButtonDown("Select"))
         {
+            Debug.Log("TurnRight");
             WeatherScheduleIndex++;
             WeatherScheduleIndex %= 3;
 

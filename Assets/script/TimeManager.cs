@@ -41,9 +41,9 @@ public class TimeManager : MonoBehaviour
         {
             state = TimeState.TIME_PLAY;
 
-            float rt = Input.GetAxis("FastForward");
-            float lt = Input.GetAxis("Rewind");
-            if (Input.GetKey(KeyCode.UpArrow) || ((rt > 0) && (lt > 0))) 
+            bool rt = Input.GetButton("FastForward");
+            bool lt = Input.GetButton("Rewind");
+            if (Input.GetKey(KeyCode.UpArrow) || (rt && lt)) 
             {
                 state = TimeState.TIME_STOP;
                 frame--;
@@ -52,12 +52,12 @@ public class TimeManager : MonoBehaviour
             {
 
             }
-            if (Input.GetKey(KeyCode.RightArrow) || ((rt > 0) && (lt <= 0)))
+            if (Input.GetKey(KeyCode.RightArrow) || (rt && !lt))
             {
                 state = TimeState.TIME_FAST;
                 frame--;
             }
-            if (Input.GetKey(KeyCode.LeftArrow) || ((rt <= 0) && (lt > 0)))
+            if (Input.GetKey(KeyCode.LeftArrow) || (!rt && lt))
             {
                 state = TimeState.TIME_BACK;
                 frame--;

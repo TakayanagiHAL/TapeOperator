@@ -44,7 +44,7 @@ public class WeatherManager_ver3 : MonoBehaviour
         switch (WeatherNum)
         {
             case 0:
-                if (Input.GetKeyDown(ChangeUpWeather))
+                if (Input.GetKeyDown(ChangeUpWeather) || Input.GetButtonDown("TurnRight"))
                 {
                     WeatherNum++;
                     WeatherAdministratorScript.ui.SetChenge();
@@ -55,7 +55,7 @@ public class WeatherManager_ver3 : MonoBehaviour
                 }
                 break;
             case 1:
-                if (Input.GetKeyDown(ChangeUpWeather))
+                if (Input.GetKeyDown(ChangeUpWeather) || Input.GetButtonDown("TurnRight"))
                 {
                     WeatherNum++;
                     WeatherAdministratorScript.ui.SetChenge();
@@ -66,7 +66,7 @@ public class WeatherManager_ver3 : MonoBehaviour
                 }
                 break;
             case 2:
-                if (Input.GetKeyDown(ChangeUpWeather))
+                if (Input.GetKeyDown(ChangeUpWeather) || Input.GetButtonDown("TurnRight"))
                 {
                     WeatherNum++;
                     WeatherAdministratorScript.ui.SetChenge();
@@ -77,7 +77,7 @@ public class WeatherManager_ver3 : MonoBehaviour
                 }
                 break;
             case 3:
-                if (Input.GetKeyDown(ChangeUpWeather))
+                if (Input.GetKeyDown(ChangeUpWeather) || Input.GetButtonDown("TurnRight"))
                 {
                     WeatherNum = 0;
                     WeatherAdministratorScript.ui.SetChenge();
