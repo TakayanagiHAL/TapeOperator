@@ -47,7 +47,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3063720038469250440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0282da0667e7ebf459bbddd14bfd4d18, type: 3}
+  m_Script: {fileID: 11500000, guid: 02dac9af2a0318348b5192b0ffcfc924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoints:
@@ -57,8 +57,7 @@ MonoBehaviour:
   - {fileID: 3552873349860117508}
   - {fileID: 8171048130371263789}
   - {fileID: 4773371706881991724}
-  NextFallTime: 0
-  FallTime: 60
+  FallTime: 30
 --- !u!65 &5995114621030218064
 BoxCollider:
   m_ObjectHideFlags: 0

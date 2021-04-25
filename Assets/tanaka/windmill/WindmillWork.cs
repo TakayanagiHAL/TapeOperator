@@ -11,10 +11,6 @@ public class WindmillWork : MonoBehaviour
 
     public float fast_rotate = 1.0f;
 
-    BackData floorL_data;
-
-    BackData floorR_data;
-
     public float floor_move = 0.05f;
 
     public float fast_floor_move = 0.1f;
@@ -32,12 +28,10 @@ public class WindmillWork : MonoBehaviour
     void Start()
     {
         impeller_rotate_data = new BackData();
-        floorL_data = new BackData();
-        floorR_data = new BackData();
+
 
         impeller_rotate_data.Init();
-        floorL_data.Init();
-        floorR_data.Init();
+
 
         //éqÉIÉuÉWÉFÉNÉgÇÃTransformÇÃéÊìæ
         inpeller_transform = transform.GetChild(0).GetComponent<Transform>();
@@ -61,24 +55,33 @@ public class WindmillWork : MonoBehaviour
         if (WeatherAdministrator.CurrentWeather == Weather.STORMY)
         {
 
-            Vector3 fld;
-            Vector3 frd;
+            float fl;
 
             switch (TimeManager.state)
             {
                 case TimeManager.TimeState.TIME_BACK:
                     //âÒì]
                     inpeller_transform.localEulerAngles = impeller_rotate_data.DataBack();
-                    //à⁄ìÆíl
-                    fld = new Vector3(0.0f, floorL_data.DataBack().y, 0.0f);
-                    frd = new Vector3(0.0f, floorR_data.DataBack().y, 0.0f);
+
+                    fl = 1.0f * floor_move;
 
                     //à⁄ìÆê›íË
-                    floorL_transform.localPosition = new Vector3(-3.0f, -1.0f * fld.y, 0.0f);
-                    floorR_transform.localPosition = new Vector3(3.0f, -1.0f * frd.y, 0.0f);
-                    cordL_transform.localScale = new Vector3(1.0f, fld.y, 1.0f);
-                    cordR_transform.localScale = new Vector3(1.0f, frd.y, 1.0f);
+                    floorL_transform.localPosition = new Vector3(-3.0f, floorL_transform.localPosition.y - fl, 0.0f);
+                    floorR_transform.localPosition = new Vector3( 3.0f, floorR_transform.localPosition.y + fl, 0.0f);
+                    cordL_transform.localScale = new Vector3(1.0f, cordL_transform.localScale.y + fl, 1.0f);
+                    cordR_transform.localScale = new Vector3(1.0f, cordR_transform.localScale.y - fl, 1.0f);
+
+                    //è„Ç™ÇÈå¿äEÇí¥Ç¶ÇΩÇÁ
+                    if (floorR_transform.localPosition.y >= -2.0f)
+                    {
+                        floorL_transform.localPosition = new Vector3(-3.0f, -max_floor, 0.0f);
+                        floorR_transform.localPosition = new Vector3( 3.0f, -2.0f, 0.0f);
+                        cordL_transform.localScale = new Vector3(1.0f, max_floor, 1.0f);
+                        cordR_transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
+                    }
+
                     break;
+
                 case TimeManager.TimeState.TIME_FAST:
 
                     //âÒì]
@@ -86,57 +89,53 @@ public class WindmillWork : MonoBehaviour
                     impeller_rotate_data.AddData(inpeller_transform.localEulerAngles);
 
                     //à⁄ìÆíl
-                    fld = new Vector3(0.0f, cordL_transform.localScale.y - fast_floor_move, 0.0f);
-                    frd = new Vector3(0.0f, cordR_transform.localScale.y + fast_floor_move, 0.0f);
+                    fl = 1.0f * fast_floor_move;
 
-                    //å¿äEíl
-                    if (fld.y <= 2.0f)
-                    {
-                        fld = new Vector3(0.0f, 2.0f, 0.0f);
-                        frd = new Vector3(0.0f, max_floor, 0.0f);
-                    }
-                    //å¿äEÇ≈Ç»ÇØÇÍÇŒÉfÅ[É^ÇÃï€éÁ
-                    else
-                    {
 
-                        floorL_data.AddData(fld);
-                        floorR_data.AddData(frd);
-                    }
                     //à⁄ìÆílê›íË
-                    floorL_transform.localPosition = new Vector3(-3.0f, -1.0f * (fld.y), 0.0f);
-                    floorR_transform.localPosition = new Vector3(3.0f, -1.0f * (frd.y), 0.0f);
-                    cordL_transform.localScale = new Vector3(1.0f, fld.y, 1.0f);
-                    cordR_transform.localScale = new Vector3(1.0f, frd.y, 1.0f);
+                    floorL_transform.localPosition = new Vector3(-3.0f, floorL_transform.localPosition.y + fl, 0.0f);
+                    floorR_transform.localPosition = new Vector3( 3.0f, floorR_transform.localPosition.y - fl, 0.0f);
+                    cordL_transform.localScale = new Vector3(1.0f, cordL_transform.localScale.y - fl, 1.0f);
+                    cordR_transform.localScale = new Vector3(1.0f, cordR_transform.localScale.y + fl, 1.0f);
 
+
+
+                    //è„Ç™ÇÈå¿äEÇí¥Ç¶ÇΩÇÁ
+                    if (floorL_transform.localPosition.y >= -2.0f)
+                    {
+                        floorL_transform.localPosition = new Vector3(-3.0f, -2.0f, 0.0f);
+                        floorR_transform.localPosition = new Vector3( 3.0f, -max_floor, 0.0f);
+                        cordL_transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
+                        cordR_transform.localScale = new Vector3(1.0f, max_floor, 1.0f);
+                    }
 
                     break;
+
                 case TimeManager.TimeState.TIME_PLAY:
                     //âÒì]
                     inpeller_transform.Rotate(0.0f, 0.0f, -rotate_speed);
                     impeller_rotate_data.AddData(inpeller_transform.localEulerAngles);
 
+
                     //à⁄ìÆíl
-                    fld = new Vector3(0.0f, cordL_transform.localScale.y - floor_move, 0.0f);
-                    frd = new Vector3(0.0f, cordR_transform.localScale.y + floor_move, 0.0f);
+                    fl = 1.0f * floor_move;
 
-                    //å¿äEíl
-                    if (fld.y <= 2.0f)
-                    {
-                        fld = new Vector3(0.0f, 2.0f, 0.0f);
-                        frd = new Vector3(0.0f, max_floor, 0.0f);
-                    }
-                    //å¿äEÇ≈Ç»ÇØÇÍÇŒÉfÅ[É^ÇÃï€éÁ
-                    else
-                    {
 
-                        floorL_data.AddData(fld);
-                        floorR_data.AddData(frd);
-                    }
                     //à⁄ìÆílê›íË
-                    floorL_transform.localPosition = new Vector3(-3.0f, -1.0f * (fld.y), 0.0f);
-                    floorR_transform.localPosition = new Vector3(3.0f, -1.0f * (frd.y), 0.0f);
-                    cordL_transform.localScale = new Vector3(1.0f, fld.y, 1.0f);
-                    cordR_transform.localScale = new Vector3(1.0f, frd.y, 1.0f);
+                    floorL_transform.localPosition = new Vector3(-3.0f, floorL_transform.localPosition.y + fl, 0.0f);
+                    floorR_transform.localPosition = new Vector3(3.0f, floorR_transform.localPosition.y - fl, 0.0f);
+                    cordL_transform.localScale = new Vector3(1.0f, cordL_transform.localScale.y - fl, 1.0f);
+                    cordR_transform.localScale = new Vector3(1.0f, cordR_transform.localScale.y + fl, 1.0f);
+
+                    //è„Ç™ÇÈå¿äEÇí¥Ç¶ÇΩÇÁ
+                    if (floorL_transform.localPosition.y >= -2.0f)
+                    {
+                        floorL_transform.localPosition = new Vector3(-3.0f, -2.0f, 0.0f);
+                        floorR_transform.localPosition = new Vector3(3.0f, -max_floor, 0.0f);
+                        cordL_transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
+                        cordR_transform.localScale = new Vector3(1.0f, max_floor, 1.0f);
+                    }
+
 
 
                     break;
@@ -147,69 +146,67 @@ public class WindmillWork : MonoBehaviour
         //ïóÇ™êÅÇ¢ÇƒÇ¢Ç»Ç¢Ç∆Ç´
         else
         {
-            Vector3 fld;
-            Vector3 frd;
+            float fl;
 
             //è„Ç…Ç¢ÇÈ
             if (WindmilFloorLHit.isHitL == true)
             {
-                //âÒì]
-                inpeller_transform.Rotate(0.0f, 0.0f, rotate_speed);
-                impeller_rotate_data.AddData(inpeller_transform.localEulerAngles);
 
-                //à⁄ìÆíl
-                fld = new Vector3(0.0f, cordL_transform.localScale.y + floor_move, 0.0f);
-                frd = new Vector3(0.0f, cordR_transform.localScale.y - floor_move, 0.0f);
 
-                //å¿äEíl
-                if (frd.y <= 2.0f)
+                fl = 1.0f * floor_move;
+
+                //à⁄ìÆê›íË
+                floorL_transform.localPosition = new Vector3(-3.0f, floorL_transform.localPosition.y - fl, 0.0f);
+                floorR_transform.localPosition = new Vector3(3.0f, floorR_transform.localPosition.y + fl, 0.0f);
+                cordL_transform.localScale = new Vector3(1.0f, cordL_transform.localScale.y + fl, 1.0f);
+                cordR_transform.localScale = new Vector3(1.0f, cordR_transform.localScale.y - fl, 1.0f);
+
+                //è„Ç™ÇÈå¿äEÇí¥Ç¶ÇΩÇÁ
+                if (floorR_transform.localPosition.y >= -2.0f)
                 {
-                    fld = new Vector3(0.0f, max_floor, 0.0f);
-                    frd = new Vector3(0.0f, 2.0f, 0.0f);
+                    floorL_transform.localPosition = new Vector3(-3.0f, -max_floor, 0.0f);
+                    floorR_transform.localPosition = new Vector3(3.0f, -2.0f, 0.0f);
+                    cordL_transform.localScale = new Vector3(1.0f, max_floor, 1.0f);
+                    cordR_transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
                 }
-                //å¿äEÇ≈Ç»ÇØÇÍÇŒÉfÅ[É^ÇÃï€éÁ
                 else
                 {
-
-                    floorL_data.AddData(fld);
-                    floorR_data.AddData(frd);
+                    //âÒì]
+                    inpeller_transform.Rotate(0.0f, 0.0f, rotate_speed);
+                    impeller_rotate_data.AddData(inpeller_transform.localEulerAngles);
                 }
-                //à⁄ìÆílê›íË
-                floorL_transform.localPosition = new Vector3(-3.0f, -1.0f * (fld.y), 0.0f);
-                floorR_transform.localPosition = new Vector3(3.0f, -1.0f * (frd.y), 0.0f);
-                cordL_transform.localScale = new Vector3(1.0f, fld.y, 1.0f);
-                cordR_transform.localScale = new Vector3(1.0f, frd.y, 1.0f);
-
 
 
             }
             else if(WindmilFloorRHit.isHitR == true)
             {
-                //âÒì]
-                inpeller_transform.Rotate(0.0f, 0.0f, -rotate_speed);
-                impeller_rotate_data.AddData(inpeller_transform.localEulerAngles);
 
                 //à⁄ìÆíl
-                fld = new Vector3(0.0f, cordL_transform.localScale.y - floor_move, 0.0f);
-                frd = new Vector3(0.0f, cordR_transform.localScale.y + floor_move, 0.0f);
+                fl = 1.0f * floor_move;
 
-                //å¿äEíl
-                if (fld.y < 2.0f)
+
+                //à⁄ìÆílê›íË
+                floorL_transform.localPosition = new Vector3(-3.0f, floorL_transform.localPosition.y + fl, 0.0f);
+                floorR_transform.localPosition = new Vector3(3.0f, floorR_transform.localPosition.y - fl, 0.0f);
+                cordL_transform.localScale = new Vector3(1.0f, cordL_transform.localScale.y - fl, 1.0f);
+                cordR_transform.localScale = new Vector3(1.0f, cordR_transform.localScale.y + fl, 1.0f);
+
+                //è„Ç™ÇÈå¿äEÇí¥Ç¶ÇΩÇÁ
+                if (floorL_transform.localPosition.y >= -2.0f)
                 {
-                    fld = new Vector3(0.0f, 2.0f, 0.0f);
-                    frd = new Vector3(0.0f, max_floor, 0.0f);
+                    floorL_transform.localPosition = new Vector3(-3.0f, -2.0f, 0.0f);
+                    floorR_transform.localPosition = new Vector3(3.0f, -max_floor, 0.0f);
+                    cordL_transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
+                    cordR_transform.localScale = new Vector3(1.0f, max_floor, 1.0f);
                 }
                 else
                 {
-
-                    floorL_data.AddData(fld);
-                    floorR_data.AddData(frd);
+                    //âÒì]
+                    inpeller_transform.Rotate(0.0f, 0.0f, -rotate_speed);
+                    impeller_rotate_data.AddData(inpeller_transform.localEulerAngles);
                 }
-                floorL_transform.localPosition = new Vector3(-3.0f, -1.0f * (fld.y), 0.0f);
-                floorR_transform.localPosition = new Vector3(3.0f, -1.0f * (frd.y), 0.0f);
-                cordL_transform.localScale = new Vector3(1.0f, fld.y, 1.0f);
-                cordR_transform.localScale = new Vector3(1.0f, frd.y, 1.0f);
             }
         }
     }
+
 }

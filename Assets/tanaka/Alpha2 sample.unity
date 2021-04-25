@@ -2093,6 +2093,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8153169055777644765, guid: 7dd19f5befdb6fa4492b57a417872a48, type: 3}
+      propertyPath: FallTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153169055777644765, guid: 7dd19f5befdb6fa4492b57a417872a48, type: 3}
       propertyPath: oints.Array.size
       value: 0
       objectReference: {fileID: 0}
