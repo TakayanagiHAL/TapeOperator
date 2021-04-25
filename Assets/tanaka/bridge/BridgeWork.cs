@@ -9,16 +9,14 @@ public class BridgeWork : MonoBehaviour
     //　カメラ内にいるかどうか
     private bool isInsideCamera;
 
-    //一度壊れたか
-    private bool isOneBreak;
     //元に戻ったか
     private bool isRepair;
     //表示、非表示判定
     private bool inVisible;
-   
+   //分割されたオブジェクト
     [SerializeField]
     private List<Transform> targetPoints;
-
+    //ボックスコライダー
     protected BoxCollider boxCollider;
 
     protected List<Rigidbody> separateBlocks;
@@ -29,34 +27,27 @@ public class BridgeWork : MonoBehaviour
 
     BackData[] pos_data;     //位置情報記録用
 
-    Vector3[] start_pos;
+    Vector3 start_pos;
 
     // Start is called before the first frame update
     void Start()
     {
         isInsideCamera =
             isRepair =
-            inVisible =
-            isOneBreak = false;
+            inVisible = false;
 
         FallTimeBase = FallTime;
 
         pos_data = new BackData[targetPoints.Count];
-        start_pos = new Vector3[targetPoints.Count];
         for (int i = 0; i < targetPoints.Count; i++)
         {
             pos_data[i] = new BackData();
             pos_data[i].Init();
         }
         //最初のポジションを格納しておく
-        int i1 = 0;
-        foreach (var targetPoint in targetPoints)
-        {
 
-            start_pos[i1] = targetPoint.position;
-        }
-
-            boxCollider = GetComponent<BoxCollider>();
+        start_pos = targetPoints[0].position;
+        boxCollider = GetComponent<BoxCollider>();
 
         separateBlocks = GetComponentsInChildren<Rigidbody>().ToList();
     }
@@ -64,10 +55,9 @@ public class BridgeWork : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //壊れていないとき
-        if (!isOneBreak)
+        ////壊れていないとき
+        if (!isRepair)
         {
-          
             //カメラに入っていないとき
             if (!isInsideCamera)
             {
@@ -79,21 +69,52 @@ public class BridgeWork : MonoBehaviour
                 var min = -5;
                 var max = 5;
 
-                FallTime--;
                 switch (TimeManager.state)
                 {
                     case TimeManager.TimeState.TIME_BACK:
-                        //壊れるのを終わりにする
-                        isOneBreak = true;
-
-                        //全ての子オブジェクトの物理判定をなくす
-                        separateBlocks.ForEach(r =>
+                        //非表示の場合表示させる
+                        if (inVisible)
                         {
-                            r.isKinematic = true;
-
-                            var vect = new Vector3(0, 0, 0);
-                            r.AddForce(vect, ForceMode.Impulse);
+                            inVisible = false;
+                            targetPoints.ForEach(t =>
+                            {
+                                t.gameObject.SetActive(true);
+                            });
+         
+                        }
+                        //巻き戻す
+                        int cb = 0;
+                        targetPoints.ForEach(t =>
+                        {
+                            t.position = pos_data[cb].DataBack();
+                            cb++;
                         });
+
+
+                        //元に戻った
+                        if (start_pos == targetPoints[0].position)
+                        {
+                             isRepair = true;
+                             boxCollider.enabled = true;
+
+                            separateBlocks.ForEach(r =>
+                            {
+                                r.isKinematic = true;
+
+                                var vect = new Vector3(0, 0, 0);
+                                r.AddForce(vect);
+                            });
+
+
+                        }
+
+                        //途中で離した場合落下時間が変わらないようにする
+                        if (FallTimeBase >= FallTime)
+                        {
+                            FallTime++;
+
+                        }
+
                         break;
 
                     case TimeManager.TimeState.TIME_FAST:
@@ -118,7 +139,9 @@ public class BridgeWork : MonoBehaviour
                             cf++;
 
                         });
-                        
+
+                        //倍の速度で落とす
+                        FallTime -= 2;
 
                         break;
 
@@ -145,12 +168,15 @@ public class BridgeWork : MonoBehaviour
 
                         });
 
+                        //等倍の速度で落とす
+                        FallTime--;
+
                         break;
 
                     case TimeManager.TimeState.TIME_STOP:
                         break;
                 }
-                if(FallTime < 0)
+                if(FallTime < 0 && !isRepair)
                 {
                     //非表示にする
                     targetPoints.ForEach(t =>
@@ -164,77 +190,20 @@ public class BridgeWork : MonoBehaviour
                         r.isKinematic = true;
 
                         var vect = new Vector3(0, 0, 0);
-                        r.AddForce(vect, ForceMode.Impulse);
+                        r.AddForce(vect);
                     });
 
-                    isOneBreak = true;
                     inVisible = true;
                     FallTime = FallTimeBase;
                 }
 
             }
         }
-        //壊れたとき
-        else
-        {
-            //直るまで
-            if(!isRepair)
-            {
-                switch (TimeManager.state)
-                {
-                    case TimeManager.TimeState.TIME_BACK:
-                        //見えるようにする
-                        if(inVisible)
-                        {
-                            inVisible = false;
-                            targetPoints.ForEach(t =>
-                            {
-                                t.gameObject.SetActive(true);
-                            });
 
-                        }
-                        //元に戻す
-                        int cb = 0;
-                        targetPoints.ForEach(t =>
-                        {
-                            t.position = pos_data[cb].DataBack();
-                            cb++;
-                        });
-
-                        
-                        int i2 = 0;
-                        foreach (var targetPoint in targetPoints)
-                        {
-                            //元に戻った
-                            if (start_pos[i2] == targetPoint.position)
-                            {
-                                isRepair = true;
-                                boxCollider.enabled = true;
-                            }
-                            
-                        }
-
-
-                        break;
-
-                    case TimeManager.TimeState.TIME_FAST:
-
-                        break;
-
-                    case TimeManager.TimeState.TIME_PLAY:
-
-                        break;
-
-                    case TimeManager.TimeState.TIME_STOP:
-                        break;
-                }
-            }
-           
-        }
-
-        
 
     }
+
+
     //カメラ内にいるかいないか判定する
     private void CameraInObject()
     {
