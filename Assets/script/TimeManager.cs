@@ -20,6 +20,8 @@ public class TimeManager : MonoBehaviour
 
     public bool is_day;
 
+    public Slider slider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +81,11 @@ public class TimeManager : MonoBehaviour
             }
             day_count = 0;
         }
+
+        slider.SetValueWithoutNotify(frame);
     }
+
+    
 }
 
 public class BackData

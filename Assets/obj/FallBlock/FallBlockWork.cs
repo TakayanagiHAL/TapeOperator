@@ -38,21 +38,24 @@ public class FallBlockWork : MonoBehaviour
         {
             case TimeManager.TimeState.TIME_BACK:
                 transform.position = size_data.DataBack();
+                flame++;
                 break;
             case TimeManager.TimeState.TIME_FAST:
                 transform.position -= transform.up * fast_fall;
                 buff = transform.position;
                 size_data.AddData(buff);
+                flame++;
                 break;
             case TimeManager.TimeState.TIME_PLAY:
                 transform.position -= transform.up * fall_speed;
                 buff = transform.position;
                 size_data.AddData(buff);
+                flame++;
                 break;
             case TimeManager.TimeState.TIME_STOP:
                 break;
         }
-        flame++;
+
 
         if (flame > fall_flame)
         {
