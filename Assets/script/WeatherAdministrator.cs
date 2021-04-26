@@ -19,9 +19,11 @@ public class WeatherAdministrator : MonoBehaviour
     //----------パーティクル-------------//
     [SerializeField] ParticleSystem RainParticle;//雨パーティクル
     [SerializeField] ParticleSystem SnowParticle;//雪パーティクル
+    [SerializeField] ParticleSystem WindParticle;//雪パーティクル
 
     ParticleSystem.EmissionModule RainEmObj;
     ParticleSystem.EmissionModule SnowEmObj;
+    ParticleSystem.EmissionModule WindEmObj;
 
     public WetherUI ui;
 
@@ -30,6 +32,7 @@ public class WeatherAdministrator : MonoBehaviour
     {
         RainEmObj = RainParticle.emission;
         SnowEmObj = SnowParticle.emission;
+        WindEmObj = WindParticle.emission;
     }
 
     // Update is called once per frame
@@ -40,18 +43,22 @@ public class WeatherAdministrator : MonoBehaviour
             case Weather.SUNNY:
                 RainEmObj.rateOverTime = 0;
                 SnowEmObj.rateOverTime = 0;
+                WindEmObj.rateOverTime = 0;
                 break;
             case Weather.RAIN:;
                 RainEmObj.rateOverTime = 100;
                 SnowEmObj.rateOverTime = 0;
+                WindEmObj.rateOverTime = 0;
                 break;
             case Weather.STORMY:
                 RainEmObj.rateOverTime = 0;
                 SnowEmObj.rateOverTime = 0;
+                WindEmObj.rateOverTime = 100;
                 break;
             case Weather.SNOW:
                 RainEmObj.rateOverTime = 0;
                 SnowEmObj.rateOverTime = 100;
+                WindEmObj.rateOverTime = 0;
                 break;
         }
        // Debug.Log(CurrentWeather);
