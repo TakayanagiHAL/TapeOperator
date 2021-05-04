@@ -422,6 +422,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2318142327049072639}
   - component: {fileID: -8034924873751744108}
+  - component: {fileID: 7004454597439366424}
+  - component: {fileID: -5473541972470914081}
   m_Layer: 0
   m_Name: WindmillPrefab
   m_TagString: Untagged
@@ -463,11 +465,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacabdbf9c73a404cb162b7ce22d9b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_visible: {fileID: 6340257833539885456}
   rotate_speed: 0.5
-  fast_rotate: 1
   floor_move: 0.05
-  fast_floor_move: 0.1
   max_floor: 8
+--- !u!114 &7004454597439366424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481599110141980446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Pause
+  _rewindable: 1
+  _recordingDuration: 30
+--- !u!114 &-5473541972470914081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481599110141980446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e02c4a0d9b6c47e09fc7c7924d2b953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localTimeScale: 1
+  _paused: 0
+  _parentKey: 
+  _parentBlend: 0
 --- !u!1 &2510144058211183889
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +513,8 @@ GameObject:
   - component: {fileID: 1722394500852827551}
   - component: {fileID: 6327474813430189913}
   - component: {fileID: 8462254721510082167}
+  - component: {fileID: 5060191326379694298}
+  - component: {fileID: 1861756119453982648}
   m_Layer: 0
   m_Name: floorRHit
   m_TagString: Untagged
@@ -525,6 +561,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d5569502385e54c95926ce7fd91403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5060191326379694298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510144058211183889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Pause
+  _rewindable: 1
+  _recordingDuration: 30
+--- !u!114 &1861756119453982648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510144058211183889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e02c4a0d9b6c47e09fc7c7924d2b953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localTimeScale: 1
+  _paused: 0
+  _parentKey: 
+  _parentBlend: 0
 --- !u!1 &2528475176158950062
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +638,7 @@ GameObject:
   - component: {fileID: 3829593578358919858}
   - component: {fileID: 3076581889128783193}
   - component: {fileID: 7010015883598560279}
+  - component: {fileID: 6340257833539885456}
   m_Layer: 0
   m_Name: wing
   m_TagString: Untagged
@@ -652,6 +722,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6340257833539885456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2670706440566314187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1cfd5d4f69bfa469c2cbaf1e23fae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_visible: 0
 --- !u!1 &5566106974754129707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,6 +1158,8 @@ GameObject:
   - component: {fileID: 6333780228122890293}
   - component: {fileID: 6606948724624847214}
   - component: {fileID: 7820028581147282832}
+  - component: {fileID: 6072689469864381785}
+  - component: {fileID: 2144743826955039691}
   m_Layer: 0
   m_Name: floorLHit
   m_TagString: Untagged
@@ -1121,3 +1206,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed503a75e2fdfa946889f897faa79992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6072689469864381785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994312542116710145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Pause
+  _rewindable: 1
+  _recordingDuration: 30
+--- !u!114 &2144743826955039691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994312542116710145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e02c4a0d9b6c47e09fc7c7924d2b953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localTimeScale: 1
+  _paused: 0
+  _parentKey: 
+  _parentBlend: 0

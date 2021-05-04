@@ -12,9 +12,7 @@ public class FallenWaterWork : MonoBehaviour
 
     public GameObject fallen_water;
 
-    Renderer is_visible;
-
-    BackData size_data;
+    public IsInCamera is_visible;
 
     // Start is called before the first frame update
     void Start()
@@ -23,24 +21,18 @@ public class FallenWaterWork : MonoBehaviour
 
         is_freez = false;
 
-        size_data = new BackData();
-        size_data.Init();
-        is_visible = transform.GetChild(0).GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!is_visible.isVisible) return;
+        if (!is_visible.is_visible) return;
 
         if (!is_freez)
         {
-            Debug.Log(is_freez);
             if(WeatherAdministrator.CurrentWeather == Weather.SNOW)
             {
                 freez_count--;
-
-                Debug.Log(freez_count);
             }
 
             if (freez_count < 0)
@@ -58,26 +50,6 @@ public class FallenWaterWork : MonoBehaviour
             }
 
         }
-        else
-        {
-            Debug.Log(is_freez);
-            Vector3 buff;
-            switch (TimeManager.state)
-            {
-                case TimeManager.TimeState.TIME_BACK:
-                    water.transform.position = size_data.DataBack();
-                    break;
-                case TimeManager.TimeState.TIME_FAST:
-                    buff = water.transform.position;
-                    size_data.AddData(buff);
-                    break;
-                case TimeManager.TimeState.TIME_PLAY:
-                    buff = water.transform.position;
-                    size_data.AddData(buff);
-                    break;
-                case TimeManager.TimeState.TIME_STOP:
-                    break;
-            }
-        }
+      
     }
 }
