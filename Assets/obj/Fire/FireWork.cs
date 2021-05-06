@@ -21,6 +21,8 @@ public class FireWork : MonoBehaviour
     {
         if (!is_visible.is_visible) return;
 
+        is_visible.is_visible = false;
+
         switch (WeatherAdministrator.CurrentWeather)
         {
             case Weather.RAIN:

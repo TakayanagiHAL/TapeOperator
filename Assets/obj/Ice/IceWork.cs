@@ -22,6 +22,8 @@ public class IceWork : MonoBehaviour
     {
         if (!is_visible.is_visible) return;
 
+        is_visible.is_visible = false;
+
         if(WeatherAdministrator.CurrentWeather == Weather.SUNNY)
         {
             this.transform.localScale.Set(this.transform.localScale.x - small_size, this.transform.localScale.y - small_size, this.transform.localScale.z - small_size);

@@ -14,7 +14,7 @@ public class IsInCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        is_visible = false;
+        //is_visible = false;
     }
 
     private void OnWillRenderObject()
@@ -26,5 +26,6 @@ public class IsInCamera : MonoBehaviour
                 is_visible = true;
             }
         }
+        
     }
 }

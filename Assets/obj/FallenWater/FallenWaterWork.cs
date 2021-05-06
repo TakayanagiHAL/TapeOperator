@@ -28,6 +28,8 @@ public class FallenWaterWork : MonoBehaviour
     {
         if (!is_visible.is_visible) return;
 
+        is_visible.is_visible = false;
+
         if (!is_freez)
         {
             if(WeatherAdministrator.CurrentWeather == Weather.SNOW)

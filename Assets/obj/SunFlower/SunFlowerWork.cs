@@ -18,7 +18,6 @@ public class SunFlowerWork : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!is_visible.is_visible) return;
 
         if(WeatherAdministrator.CurrentWeather == Weather.SUNNY)
         {

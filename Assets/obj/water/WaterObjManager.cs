@@ -22,6 +22,8 @@ public class WaterObjManager : MonoBehaviour
     {
         if (!is_visible.is_visible) return;
 
+        is_visible.is_visible = false;
+
         //‰J‚ÌŽž‚¾‚¯“®‚­
         if (WeatherAdministrator.CurrentWeather == Weather.RAIN)
         {

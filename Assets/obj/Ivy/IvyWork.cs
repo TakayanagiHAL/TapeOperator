@@ -5,14 +5,14 @@ using UnityEngine;
 public class IvyWork : MonoBehaviour
 {
 
-    public float grow_size = 1.0f/60.0f;
+
+    public float grow_size = 0.05f;
+
+
 
     public float max_glow = 10.0f;
 
-    public float min_size = 1.0f;
-
     public IsInCamera is_visible;
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,29 +26,23 @@ public class IvyWork : MonoBehaviour
     {
         if (!is_visible.is_visible) return;
 
-        switch (WeatherAdministrator.CurrentWeather){
-            case Weather.SUNNY:
-                this.transform.localScale.Set(this.transform.localScale.x, this.transform.localScale.y + grow_size, this.transform.localScale.z);
-                break;
-            case Weather.RAIN:
-                this.transform.localScale.Set(this.transform.localScale.x, this.transform.localScale.y - grow_size, this.transform.localScale.z);
-                break;
-            case Weather.STORMY:
-                this.transform.localScale.Set(this.transform.localScale.x, this.transform.localScale.y - grow_size, this.transform.localScale.z);
-                break;
-            case Weather.SNOW:
-                this.transform.localScale.Set(this.transform.localScale.x, this.transform.localScale.y - grow_size, this.transform.localScale.z);
-                break;
+        is_visible.is_visible = false;
+
+        Vector3 buff; 
+
+        if(WeatherAdministrator.CurrentWeather == Weather.SUNNY)
+        {
+            buff = new Vector3(transform.localScale.x, transform.localScale.y + grow_size, transform.localScale.z);
+            if (buff.y >= max_glow) buff.y = max_glow;
+            transform.localScale = buff;
+        }
+        else
+        {
+            buff = new Vector3(transform.localScale.x, transform.localScale.y - grow_size, transform.localScale.z);
+            if (buff.y <= 1) buff.y = 1;
+            transform.localScale = buff;
         }
 
-        if (this.transform.localScale.y > max_glow)
-        {
-            this.transform.localScale.Set(this.transform.localScale.x, max_glow, this.transform.localScale.z);
-        }
-
-        if (this.transform.localScale.y < min_size)
-        {
-            this.transform.localScale.Set(this.transform.localScale.x, min_size, this.transform.localScale.z);
-        }
+      
     }
 }

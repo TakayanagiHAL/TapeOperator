@@ -25,7 +25,6 @@ public class WeatherAdministrator : MonoBehaviour
     ParticleSystem.EmissionModule SnowEmObj;
     ParticleSystem.EmissionModule WindEmObj;
 
-    public WetherUI ui;
 
     // Start is called before the first frame update
     void Start()
@@ -67,10 +66,9 @@ public class WeatherAdministrator : MonoBehaviour
     //天気セット
     public void SetWeather(Weather weather)
     {
-        if (ui.change_count == 0)
-        {
+  
             CurrentWeather = weather;
-        }
+        
     }
 
     //天気取得

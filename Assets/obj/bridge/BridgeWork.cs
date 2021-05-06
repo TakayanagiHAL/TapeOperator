@@ -19,16 +19,22 @@ public class BridgeWork : MonoBehaviour
         frame = 0;
         broken = -1;
 
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 6; i++)
         {
-            rigidbodies[i].useGravity = true;
+            rigidbodies[i].useGravity = false;
+            rigidbodies[i].constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!is_visible.is_visible) return;
+        //Debug.Log(is_visible.is_visible);
+        if (is_visible.is_visible == false) return;
+        is_visible.is_visible = false;
+         
+       // Debug.Log("look");
+        if (broken > 5) return;
 
        if(WeatherAdministrator.CurrentWeather == Weather.STORMY)
         {
@@ -36,7 +42,9 @@ public class BridgeWork : MonoBehaviour
             if(frame%60 == 0)
             {
                 broken++;
+                Debug.Log("broken");
                 rigidbodies[broken].useGravity = true;
+                rigidbodies[broken].constraints = RigidbodyConstraints.None;
             }
         }
 

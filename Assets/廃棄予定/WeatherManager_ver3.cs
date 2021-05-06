@@ -47,7 +47,7 @@ public class WeatherManager_ver3 : MonoBehaviour
                 if (Input.GetKeyDown(ChangeUpWeather) || Input.GetButtonDown("TurnRight"))
                 {
                     WeatherNum++;
-                    WeatherAdministratorScript.ui.SetChenge();
+                   // WeatherAdministratorScript.ui.SetChenge();
                 }
                 if (Input.GetKeyDown(ChangeDownWeather))
                 {
@@ -58,7 +58,7 @@ public class WeatherManager_ver3 : MonoBehaviour
                 if (Input.GetKeyDown(ChangeUpWeather) || Input.GetButtonDown("TurnRight"))
                 {
                     WeatherNum++;
-                    WeatherAdministratorScript.ui.SetChenge();
+                   // WeatherAdministratorScript.ui.SetChenge();
                 }
                 if (Input.GetKeyDown(ChangeDownWeather))
                 {
@@ -69,7 +69,7 @@ public class WeatherManager_ver3 : MonoBehaviour
                 if (Input.GetKeyDown(ChangeUpWeather) || Input.GetButtonDown("TurnRight"))
                 {
                     WeatherNum++;
-                    WeatherAdministratorScript.ui.SetChenge();
+                    //WeatherAdministratorScript.ui.SetChenge();
                 }
                 if (Input.GetKeyDown(ChangeDownWeather))
                 {
@@ -80,7 +80,7 @@ public class WeatherManager_ver3 : MonoBehaviour
                 if (Input.GetKeyDown(ChangeUpWeather) || Input.GetButtonDown("TurnRight"))
                 {
                     WeatherNum = 0;
-                    WeatherAdministratorScript.ui.SetChenge();
+                    //WeatherAdministratorScript.ui.SetChenge();
                 }
                 if (Input.GetKeyDown(ChangeDownWeather))
                 {

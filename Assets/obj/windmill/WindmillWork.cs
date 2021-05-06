@@ -39,11 +39,15 @@ public class WindmillWork : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!is_visible.is_visible) return;
+        if (is_visible.is_visible) return;
+
+        is_visible.is_visible = false;
 
         //•—‚ÌŽž‚¾‚¯“®‚­
         if (WeatherAdministrator.CurrentWeather == Weather.STORMY)
         {
+
+            Debug.Log("move");
 
             float fl;
 
