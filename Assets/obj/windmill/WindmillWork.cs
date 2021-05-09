@@ -12,6 +12,8 @@ public class WindmillWork : MonoBehaviour
 
     public float max_floor = 8.0f;
 
+    public Animator[] animator = new Animator[3];
+
     Transform inpeller_transform;
     Transform floorL_transform;
     Transform floorR_transform;
@@ -39,20 +41,25 @@ public class WindmillWork : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (is_visible.is_visible) return;
+        if (!is_visible.is_visible) return;
+
 
         is_visible.is_visible = false;
 
         //•—‚ÌŽž‚¾‚¯“®‚­
         if (WeatherAdministrator.CurrentWeather == Weather.STORMY)
         {
+            for (int i = 0; i < 3; i++)
+            {
+                animator[i].SetBool("IsStormy", true);
+            }
 
             Debug.Log("move");
 
             float fl;
 
                     //‰ñ“]
-                    inpeller_transform.Rotate(0.0f, 0.0f, -rotate_speed);
+                   // inpeller_transform.Rotate(0.0f, 0.0f, -rotate_speed);
 
                     //ˆÚ“®’l
                     fl = 1.0f * floor_move;
@@ -72,6 +79,13 @@ public class WindmillWork : MonoBehaviour
                         cordL_transform.localScale = new Vector3(cordL_transform.localScale.x, 2.0f, 1.0f);
                         cordR_transform.localScale = new Vector3(cordR_transform.localScale.x, max_floor, 1.0f);
                     }
+        }
+        else
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                animator[i].SetBool("IsStormy", false);
+            }
         }
        
     }

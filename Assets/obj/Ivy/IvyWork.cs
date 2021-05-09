@@ -5,20 +5,32 @@ using UnityEngine;
 public class IvyWork : MonoBehaviour
 {
 
+    public float grow_size = 1.0f/60.0f/3.0f;
 
-    public float grow_size = 0.05f;
+    //public float max_glow = 10.0f;
 
-
-
-    public float max_glow = 10.0f;
+    public float min_size = 1.0f;
 
     public IsInCamera is_visible;
+
+    public GameObject[] mid = new GameObject[8];
+
+    public GameObject top;
+
+    private int current_glow;
+
+    private int mid_couont = 8;
 
     // Start is called before the first frame update
     void Start()
     {
 
+        current_glow = 0;
 
+        for(int i = 1; i < mid_couont; i++)
+        {
+            mid[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -28,21 +40,101 @@ public class IvyWork : MonoBehaviour
 
         is_visible.is_visible = false;
 
-        Vector3 buff; 
-
-        if(WeatherAdministrator.CurrentWeather == Weather.SUNNY)
+        if (WeatherAdministrator.CurrentWeather == Weather.SUNNY)
         {
-            buff = new Vector3(transform.localScale.x, transform.localScale.y + grow_size, transform.localScale.z);
-            if (buff.y >= max_glow) buff.y = max_glow;
-            transform.localScale = buff;
+            Debug.Log("glow");
+
+            top.transform.Translate(0, grow_size, 0);
+
+            for (int i = 0; i < mid_couont; i++)
+            {
+                int top_pos = (int)top.transform.localPosition.y;
+
+                if ((i + 1) <= top_pos)
+                {
+                    if (!mid[i].active)
+                        mid[i].SetActive(true);
+                }
+                else
+                {
+                    if (mid[i].active)
+                        mid[i].SetActive(false);
+                }
+            }
+
+            if (top.transform.localPosition.y >= 8)
+            {
+                top.transform.localPosition = new Vector3(top.transform.localPosition.x, 8, top.transform.position.z);
+            }
+            //mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, (mid[current_glow].transform.localScale.y + grow_size), mid[current_glow].transform.localScale.z);
+
+            //for (int i = current_glow; i < mid_couont; i++)
+            //{
+            //    mid[i].transform.localPosition.Set(mid[current_glow].transform.localPosition.x, mid[current_glow].transform.localPosition.y + grow_size / 2, mid[current_glow].transform.localScale.z);
+            //}
+
+            //top.transform.localPosition.Set(top.transform.localPosition.x, top.transform.localPosition.y + grow_size / 2, top.transform.localScale.z);
+
+
+            //if (mid[current_glow].transform.localScale.y >= 1)
+            //{
+            //    mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, 1.0f, mid[current_glow].transform.localScale.z);
+
+            //    current_glow++;
+
+            //    if (current_glow >= mid_couont)
+            //    {
+            //        current_glow = 7;
+            //    }
+            //}
         }
         else
         {
-            buff = new Vector3(transform.localScale.x, transform.localScale.y - grow_size, transform.localScale.z);
-            if (buff.y <= 1) buff.y = 1;
-            transform.localScale = buff;
-        }
 
-      
+            top.transform.Translate(0, -grow_size, 0);
+
+            for (int i = 0; i < mid_couont; i++)
+            {
+                int top_pos = (int)top.transform.localPosition.y;
+
+                if ((i + 1) <= top_pos)
+                {
+                    if (!mid[i].active)
+                        mid[i].SetActive(true);
+                }
+                else
+                {
+                    if (mid[i].active)
+                        mid[i].SetActive(false);
+                }
+
+                if (top.transform.localPosition.y <= 1)
+                {
+                    top.transform.localPosition = new Vector3(top.transform.localPosition.x, 1, top.transform.position.z);
+                }
+
+                //mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, mid[current_glow].transform.localScale.y - grow_size, mid[current_glow].transform.localScale.z);
+
+                //for (int i = mid_couont-1; i >= current_glow; i--)
+                //{
+                //    mid[i].transform.localPosition.Set(mid[current_glow].transform.localPosition.x, mid[current_glow].transform.localPosition.y - grow_size / 2, mid[current_glow].transform.localPosition.z);
+                //}
+
+                //top.transform.localPosition.Set(top.transform.localPosition.x, top.transform.localPosition.y - grow_size / 2, top.transform.localScale.z);
+
+
+                //if (mid[current_glow].transform.localScale.y <= 0.1)
+                //{
+                //    mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, 0.1f, mid[current_glow].transform.localScale.z);
+
+                //    current_glow--;
+
+                //    if (current_glow <0)
+                //    {
+                //        current_glow = 0;
+                //    }
+                //}
+            }
+        }
     }
 }
