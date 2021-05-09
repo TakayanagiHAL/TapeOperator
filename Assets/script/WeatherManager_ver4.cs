@@ -147,4 +147,14 @@ public class WeatherManager_ver4 : MonoBehaviour
         Text WeatherAndRemainTimeView_Text = WeatherAndRemainTimeView.GetComponent<Text>();
         WeatherAndRemainTimeView_Text.text = "“VŒó" + weatherScheduleConfig.weathers[WeatherScheduleIndex] + "_Žc‚èŽžŠÔ" + (WeatherManagerNextTime - CurrentTime) + "_" + TimeManager.state;
     }
+
+    public float GetCurrentTime()
+    {
+        return CurrentTime;
+    }
+
+    public int GetWeatherScheduleIndex()
+    {
+        return WeatherScheduleIndex;
+    }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class PageChanger : MonoBehaviour
 {
     [SerializeField] GameObject[] Canvas;   //各ページのCanvasを入れる配列
-    public static int PageNum = 0;          //今のページ数を表す変数
+    public static int PageNum = 0;         //今のページ数を表す変数
+    private Animator anim;                 //Animator取得用変数
 
     // Start is called before the first frame update
     void Start()
@@ -15,13 +16,27 @@ public class PageChanger : MonoBehaviour
         {
             Canvas[i].SetActive(false);
         }
-        Canvas[PageNum].SetActive(true);    //今のページのCanvasをtrueにする
+
+        //アルバムのAnimatorコンポーネントを設定
+        anim = this.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //決定ボタンで本を開く
+        if (Input.GetButtonDown("Select"))
+        {
+            anim.SetBool("OpenFlag", true);
+        }
+
+        //ジャンプボタンで本を閉じる
+        if (Input.GetButtonDown("Jump"))
+        {
+            Canvas[PageNum].SetActive(false);   //今のページのCanvasをfalseにする
+            anim.SetBool("CloseFlag", true);
+        }
     }
 
 
@@ -31,9 +46,9 @@ public class PageChanger : MonoBehaviour
         //ページ数が0より大きい場合
         if (PageNum > 0)
         {
-            Canvas[PageNum].SetActive(false);   //今のページのCanvasをfalseにする
-            PageNum--;                          //ページ数を１つ減らす  
-            Canvas[PageNum].SetActive(true);    //減らした後のページのCanvasをtrueにする
+            Canvas[PageNum].SetActive(false);       //今のページのCanvasをfalseにする
+            PageNum--;                              //ページ数を１つ減らす  
+            anim.SetBool("BeforePageFlag", true);  //前のページのアニメーションをtrueにする
         }
     }
 
@@ -41,11 +56,16 @@ public class PageChanger : MonoBehaviour
     //次のページUIを呼ぶ関数
     public void NextPageCall()
     {
-        if (PageNum < Canvas.Length)
+        if (PageNum < Canvas.Length - 1) 
         {
             Canvas[PageNum].SetActive(false);   //今のページのCanvasをfalseにする
             PageNum++;                          //ページ数を１つ増やす  
-            Canvas[PageNum].SetActive(true);    //増やした後のページのCanvasをtrueにする
+            anim.SetBool("NextPageFlag", true);    //次のページのアニメーションをtrueにする
         }
+    }
+
+    public void CanvasDisp()
+    {
+        Canvas[PageNum].SetActive(true);    //指定ページのCanvasをtrueにする
     }
 }

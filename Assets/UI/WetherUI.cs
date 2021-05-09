@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class WetherUI : MonoBehaviour
 {
-    private Rotater rotater;
 
     public int now_wether;
 
@@ -16,18 +15,16 @@ public class WetherUI : MonoBehaviour
 
     public Sprite[] front_sprite = new Sprite[4];
 
-    public int change_count = 0;
-
     public Image back_image;
 
     public Image front_image;
+
+    public WeatherManager_ver4 manager;
 
     // Start is called before the first frame update
     void Start()
     {
         now_wether = 0;
-
-        rotater = new Rotater();
 
         back_image.sprite = back_sprite[0];
         front_image.sprite = front_sprite[0];
@@ -43,39 +40,20 @@ public class WetherUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+       if(now_wether != manager.GetWeatherScheduleIndex())
         {
-            SetChenge();
+            wetherMarks[now_wether].SetSprite(false);
+            now_wether = manager.GetWeatherScheduleIndex();
+
+            back_image.sprite = back_sprite[now_wether];
+            front_image.sprite = front_sprite[now_wether];
+
+            wetherMarks[now_wether].SetSprite(true);
         }
 
-        if (change_count > 0 && !rotater.is_change)
-        {
-            rotater.SetRotate(1.0f, this.transform.localEulerAngles.z + 90);
-            back_image.enabled = false;
-            front_image.enabled = false;
-
-        }else if(change_count>0 && rotater.is_change)
-        {
-            if (!rotater.Rotate(this.transform))
-            {
-                change_count--;
-                wetherMarks[now_wether].SetSprite(false);
-                now_wether++;
-                now_wether %= 4;
-                wetherMarks[now_wether].SetSprite(true);
-                back_image.sprite = back_sprite[now_wether];
-                front_image.sprite = front_sprite[now_wether];
-                back_image.enabled = true;
-                front_image.enabled = true;
-                Debug.Log(this.transform.localEulerAngles.z);
-            }
-        }
+        transform.rotation = Quaternion.Euler(0, 0, (90.0f * now_wether) + (manager.GetCurrentTime() * 18.0f));
     }
 
-    public void SetChenge()
-    {
-        change_count++;
-    }
 
 }
 
