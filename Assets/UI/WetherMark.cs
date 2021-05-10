@@ -24,7 +24,7 @@ public class WetherMark : MonoBehaviour
     {
         if (is_use)
         {
-            image.sprite = sprite[0];
+
         }
         else
         {

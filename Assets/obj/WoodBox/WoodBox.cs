@@ -9,16 +9,14 @@ public class WoodBox : MonoBehaviour
 
     public Vector3 vector = Vector3.right;
 
-    public float wind_force = 1.0f / (60.0f * 5.0f);
+    public float wind_force = 1.0f/60.0f/5.0f;
 
-    private Rigidbody rigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
         vector.Normalize();
 
-        rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -30,7 +28,7 @@ public class WoodBox : MonoBehaviour
 
         if(WeatherAdministrator.CurrentWeather == Weather.STORMY)
         {
-            rigidbody.AddForce((vector * wind_force),ForceMode.Force);
+            this.transform.Translate(vector * wind_force);
         }
     }
 }

@@ -24,7 +24,7 @@ public class goalWork : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            scheneChanger.ChangeScene(next_scene);
+            scheneChanger.ChangeScene((int)next_scene);
         }
     }
 }

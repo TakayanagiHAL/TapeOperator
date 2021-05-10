@@ -5,19 +5,37 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/be-ta/be-ta1.unity
     guid: e912deeec4f94f5429c0ca972057dc24
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/be-ta/be-ta2.unity
     guid: 81324ed94f176b040afe3797eb771db3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/be-ta/be-ta3.unity
     guid: 72f35f2bdbd3a1649a07f24cee0f5cb1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/be-ta/be-ta4.unity
     guid: e5278e782cf51c040b1cc7da4350da30
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/be-ta/be-ta5.unity
     guid: 6338af3dea7d493459137dfabdd11513
+  - enabled: 1
+    path: Assets/Scenes/StageSelect/StageSelect.unity
+    guid: f978cc1a47f7e5d4fba9c75010c37902
+  - enabled: 1
+    path: Assets/Scenes/Egypt/Egypt1_1/Egypt1_1.unity
+    guid: 694490a6b4f59af40b5b1abadd91d22e
+  - enabled: 1
+    path: Assets/Scenes/Egypt/Egypt1_2/Egypt1_2.unity
+    guid: 2d1165a8036e61040a8037919a381711
+  - enabled: 1
+    path: Assets/Scenes/Egypt/Egypt1_3/Egypt1_3.unity
+    guid: 288caf7f7ce0b86478e8640dd2c53b9a
+  - enabled: 1
+    path: Assets/Scenes/Egypt/Egypt1_4/Egypt1_4.unity
+    guid: 9794d9b89cf4d3b44a4b8c40e9610fb5
+  - enabled: 1
+    path: Assets/Scenes/Egypt/Egypt1_5/Egypt1_5.unity
+    guid: 82b5c91f920ab374aa0c816ef055e65f
   m_configObjects: {}

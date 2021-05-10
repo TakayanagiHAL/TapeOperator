@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4186900429873192364}
   - component: {fileID: 4186900429873192366}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Mark1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,12 +26,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4186900429873192354}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4186900431365709606}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4186900429909270824}
   - component: {fileID: 4186900429909270826}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Mark3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ RectTransform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4186900431365709606}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 4186900430501443746}
   - component: {fileID: 4186900430501443745}
   m_Layer: 5
-  m_Name: Image
+  m_Name: WetherUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 4186900430943815003}
   - component: {fileID: 4186900430943814981}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Mark2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,16 +360,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4186900430943815001}
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.20000002, y: 0.20000002, z: 1}
   m_Children: []
   m_Father: {fileID: 4186900431365709606}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.2, y: 0}
+  m_AnchoredPosition: {x: 31.199997, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4186900430943814980
@@ -455,10 +455,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4186900429909270831}
-  - {fileID: 4186900430943815002}
-  - {fileID: 4186900431734223738}
   - {fileID: 4186900429873192355}
+  - {fileID: 4186900430943815002}
+  - {fileID: 4186900429909270831}
+  - {fileID: 4186900431734223738}
   m_Father: {fileID: 4186900430501443744}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -533,9 +533,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b7c33be347521d345ba14361fb06ab04, type: 3}
   - {fileID: 21300000, guid: 09ac66f7d409fd5429bd6f0726f707b7, type: 3}
   - {fileID: 21300000, guid: 77c62a3f96fb76a46810a8169824dd28, type: 3}
-  change_count: 0
   back_image: {fileID: 4186900431626828873}
   front_image: {fileID: 4186900429947034193}
+  manager: {fileID: 0}
 --- !u!1 &4186900431626828879
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 4186900431734223739}
   - component: {fileID: 4186900431734223717}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Mark4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,7 +643,7 @@ RectTransform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4186900431365709606}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
