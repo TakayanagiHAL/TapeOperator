@@ -17,7 +17,7 @@ public class BridgeWork : MonoBehaviour
     void Start()
     {
         frame = 0;
-        broken = -1;
+        broken = 0;
 
         for(int i = 0; i < 6; i++)
         {
@@ -41,10 +41,13 @@ public class BridgeWork : MonoBehaviour
             frame++;
             if(frame%60 == 0)
             {
-                broken++;
+
                 Debug.Log("broken");
+                Debug.Log(broken);
                 rigidbodies[broken].useGravity = true;
                 rigidbodies[broken].constraints = RigidbodyConstraints.None;
+
+                broken++;
             }
         }
 
