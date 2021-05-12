@@ -6,11 +6,11 @@ public class WindmillWork : MonoBehaviour
 {
     public IsInCamera is_visible;
 
-    public float rotate_speed = 0.5f;
+    //public float rotate_speed = 0.5f;
 
     public float floor_move = 0.05f;
 
-    public float max_floor = 8.0f;
+    public float max_floor = 6.0f;
 
     public Animator[] animator = new Animator[3];
 
