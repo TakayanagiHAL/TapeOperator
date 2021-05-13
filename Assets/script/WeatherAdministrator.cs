@@ -37,6 +37,8 @@ public class WeatherAdministrator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (TimeManager.state == TimeManager.TimeState.TIME_PAUSE) return;
+
         switch(CurrentWeather)
         {
             case Weather.SUNNY:

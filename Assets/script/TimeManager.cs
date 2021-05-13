@@ -9,7 +9,8 @@ public class TimeManager : MonoBehaviour
         TIME_PLAY,
         TIME_STOP,
         TIME_BACK,
-        TIME_FAST
+        TIME_FAST,
+        TIME_PAUSE
     };
 
     public static TimeState state;
@@ -37,6 +38,10 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(state);
+
+        if (state == TimeState.TIME_PAUSE) return;
+
         if (frame > 0)
         {
             state = TimeState.TIME_PLAY;

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3613867188438578696}
   - component: {fileID: 7451661737430491272}
+  - component: {fileID: 7481398176572142657}
+  - component: {fileID: -1076780846179684851}
   m_Layer: 0
   m_Name: WeatherManager
   m_TagString: Untagged
@@ -46,3 +48,36 @@ MonoBehaviour:
   weatherScheduleConfig: {fileID: 0}
   FastFeedRate: 1.5
   WeatherAndRemainTimeView: {fileID: 0}
+--- !u!114 &7481398176572142657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3613867188438578694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e02c4a0d9b6c47e09fc7c7924d2b953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localTimeScale: 1
+  _paused: 0
+  _parentKey: 
+  _parentBlend: 0
+--- !u!114 &-1076780846179684851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3613867188438578694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Pause
+  _rewindable: 1
+  _recordingDuration: 30
