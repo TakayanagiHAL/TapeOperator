@@ -23,7 +23,7 @@ public class ScheneChanger : MonoBehaviour
         SCENE_MAX
     }
 
-    private string[] scene_name = new string[] {
+    private static string[] scene_name = new string[] {
         "Scenes/StageSelect/StageSelect",
         "Takayanagi/be-ta/be-ta1",
         "Takayanagi/be-ta/be-ta2",
@@ -53,7 +53,7 @@ public class ScheneChanger : MonoBehaviour
     }
 
    // [EnumAction(typeof(ScheneChanger.SCENE_NAME))]
-    public void ChangeScene(int name)
+   static public void ChangeScene(int name)
     {
         SceneManager.LoadScene(scene_name[(int)name]);
     }
