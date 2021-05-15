@@ -66,6 +66,8 @@ public class WeatherManager_ver4 : MonoBehaviour
                 //ƒJƒEƒ“ƒg
                 CurrentTime += FastFeedRate * Time.deltaTime;
                 break;
+            case TimeManager.TimeState.TIME_PAUSE:
+                return;
         }
 
         //‹tÄ¶‚È‚ç

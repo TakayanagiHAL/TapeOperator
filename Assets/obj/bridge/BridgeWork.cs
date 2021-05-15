@@ -11,6 +11,8 @@ public class BridgeWork : MonoBehaviour
 
     private int frame;
 
+    
+
     private int broken;
 
     // Start is called before the first frame update
@@ -48,6 +50,8 @@ public class BridgeWork : MonoBehaviour
                 rigidbodies[broken].constraints = RigidbodyConstraints.None;
 
                 broken++;
+
+               
             }
         }
 

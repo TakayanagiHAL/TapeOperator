@@ -54,6 +54,14 @@ public class playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (TimeManager.state == TimeManager.TimeState.TIME_PAUSE)
+        {
+            animator.speed = 0;
+            return;
+        }
+
+        animator.speed = 1;
+
         //キーの直値
         // カーソルキーの入力を取得
         //右移動

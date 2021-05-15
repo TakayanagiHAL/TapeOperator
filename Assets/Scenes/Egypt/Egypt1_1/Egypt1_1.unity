@@ -5081,7 +5081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1048963492446909252, guid: d31096a9a4173f24d964e747f7758cf0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5854931
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1048963492446909252, guid: d31096a9a4173f24d964e747f7758cf0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6137,7 +6137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1048963492446909252, guid: d31096a9a4173f24d964e747f7758cf0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1048963492446909252, guid: d31096a9a4173f24d964e747f7758cf0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6480,6 +6480,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1974163053}
+    - target: {fileID: 7837167710332481048, guid: 283ddc44d3dae07468722866be8e3439, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 8675977004421226274, guid: 283ddc44d3dae07468722866be8e3439, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -8686,7 +8690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536684530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.02, y: 4.79, z: -10}
+  m_LocalPosition: {x: -1.02, y: 4.79, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10240,7 +10244,7 @@ PrefabInstance:
     - target: {fileID: 7451661737430491272, guid: 73d6c739e42965d48a52ce6e3ed0de7b, type: 3}
       propertyPath: weatherScheduleConfig
       value: 
-      objectReference: {fileID: 11400000, guid: ab4a4d3e5579d584d8b5517048c36c59, type: 2}
+      objectReference: {fileID: 11400000, guid: a584567857fcecc4c843e8de4d5182ba, type: 2}
     - target: {fileID: 7451661737430491272, guid: 73d6c739e42965d48a52ce6e3ed0de7b, type: 3}
       propertyPath: WeatherAndRemainTimeView
       value: 
