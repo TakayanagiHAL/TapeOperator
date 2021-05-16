@@ -14,13 +14,13 @@ public class TimeManager : MonoBehaviour
 
     public static TimeState state;
 
-    public Text text;
-
     private int frame;
 
     private int day_count;
 
     public bool is_day;
+
+    public Slider slider;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +41,9 @@ public class TimeManager : MonoBehaviour
         {
             state = TimeState.TIME_PLAY;
 
-            float rt = Input.GetAxis("FastForward");
-            float lt = Input.GetAxis("Rewind");
-            if (Input.GetKey(KeyCode.UpArrow) || ((rt > 0) && (lt > 0))) 
+            bool rt = Input.GetButton("FastForward");
+            bool lt = Input.GetButton("Rewind");
+            if (Input.GetKey(KeyCode.UpArrow) || (rt && lt)) 
             {
                 state = TimeState.TIME_STOP;
                 frame--;
@@ -52,12 +52,12 @@ public class TimeManager : MonoBehaviour
             {
 
             }
-            if (Input.GetKey(KeyCode.RightArrow) || ((rt > 0) && (lt <= 0)))
+            if (Input.GetKey(KeyCode.RightArrow) || (rt && !lt))
             {
                 state = TimeState.TIME_FAST;
                 frame--;
             }
-            if (Input.GetKey(KeyCode.LeftArrow) || ((rt <= 0) && (lt > 0)))
+            if (Input.GetKey(KeyCode.LeftArrow) || (!rt && lt))
             {
                 state = TimeState.TIME_BACK;
                 frame--;
@@ -67,9 +67,6 @@ public class TimeManager : MonoBehaviour
         {
             state = TimeState.TIME_PLAY;
         }
-        float timer_time = (float)frame / 60;
-        text.text = timer_time.ToString();
-        Debug.Log(state);
 
         day_count++;
         if (day_count >= 600)
@@ -84,7 +81,11 @@ public class TimeManager : MonoBehaviour
             }
             day_count = 0;
         }
+
+        slider.SetValueWithoutNotify(frame);
     }
+
+    
 }
 
 public class BackData
@@ -144,5 +145,13 @@ public class BackData
        // Debug.Log(back_data[current_data].position);
 
         return back_data[current_data];
+    }
+
+    public void FillData(Vector3 data)
+    {
+        for(int i = 0; i < data_count; i++)
+        {
+            back_data[i] = data;
+        }
     }
 }

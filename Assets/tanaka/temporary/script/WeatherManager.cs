@@ -159,9 +159,10 @@ public class WeatherManager : MonoBehaviour
 
         }
 
-
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("TurnRight"))
+        
+        if (Input.GetButtonDown("Select"))
         {
+            Debug.Log("TurnRight");
             WeatherScheduleIndex++;
             WeatherScheduleIndex %= 3;
 
@@ -193,7 +194,7 @@ public class WeatherManager : MonoBehaviour
         }
 
         //テキスト表示
-        Text WeatherAndRemainTimeView_Text = WeatherAndRemainTimeView.GetComponent<Text>();
-        WeatherAndRemainTimeView_Text.text = "天候" + weatherschedule[WeatherScheduleIndex].weather + "_残り時間" + (WeatherManagerNextTime - CurrentTime) + "_" + TimeManager.state;
+        //Text WeatherAndRemainTimeView_Text = WeatherAndRemainTimeView.GetComponent<Text>();
+        //WeatherAndRemainTimeView_Text.text = "天候" + weatherschedule[WeatherScheduleIndex].weather + "_残り時間" + (WeatherManagerNextTime - CurrentTime) + "_" + TimeManager.state;
     }
 }
