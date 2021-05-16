@@ -6,6 +6,7 @@ public class SnowMountWork : MonoBehaviour
 {
     [SerializeField] float snow_mount = 1.0f / 60.0f / 5.0f;
     [SerializeField] float blizard_mount = 1.0f / 60.0f / 3.0f;
+    [SerializeField] float max_size = 10;
     [SerializeField] IsInCamera is_visible;
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,17 @@ public class SnowMountWork : MonoBehaviour
                 break;
             case Weather.SNOW:
                 transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + snow_mount, transform.localScale.z);
+                if (transform.localScale.y >= 10)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x, max_size, transform.localScale.z);
+                }
+                break;
+            case Weather.BLIZZARD:
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + blizard_mount, transform.localScale.z);
+                if (transform.localScale.y >= 10)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x, max_size, transform.localScale.z);
+                }
                 break;
         }
     }

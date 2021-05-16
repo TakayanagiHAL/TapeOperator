@@ -9,6 +9,7 @@ public enum Weather
     RAIN,
     STORMY,
     SNOW,
+    BLIZZARD
 }
 
 public class WeatherAdministrator : MonoBehaviour
