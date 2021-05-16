@@ -21,6 +21,8 @@ public class IvyWork : MonoBehaviour
 
     private int mid_couont = 8;
 
+    [SerializeField] 
+
     // Start is called before the first frame update
     void Start()
     {

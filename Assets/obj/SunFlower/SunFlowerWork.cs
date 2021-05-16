@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SunFlowerWork : MonoBehaviour
 {
-    public IsInCamera is_visible;
+   // public IsInCamera is_visible;
 
     public GameObject flower;
+
+    [SerializeField] GameObject bud;
 
     private bool is_sun;
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class SunFlowerWork : MonoBehaviour
         {
             if(!is_sun)
             {
+                bud.SetActive(false);
                 flower.SetActive(true);
                 is_sun = true;
             }
@@ -31,6 +34,7 @@ public class SunFlowerWork : MonoBehaviour
         {
             if (is_sun)
             {
+                bud.SetActive(true);
                 flower.SetActive(false);
                 is_sun = false;
             }
