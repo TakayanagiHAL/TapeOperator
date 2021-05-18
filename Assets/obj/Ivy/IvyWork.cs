@@ -31,7 +31,7 @@ public class IvyWork : MonoBehaviour
 
         for(int i = 1; i < mid_couont; i++)
         {
-            mid[i].SetActive(false);
+            mid[i].SetActive(true);
         }
     }
 
@@ -48,20 +48,11 @@ public class IvyWork : MonoBehaviour
 
             top.transform.Translate(0, grow_size, 0);
 
-            for (int i = 0; i < mid_couont; i++)
-            {
-                int top_pos = (int)top.transform.localPosition.y;
+            int top_pos = (int)top.transform.localPosition.y;
 
-                if ((i + 1) <= top_pos)
-                {
-                    if (!mid[i].active)
-                        mid[i].SetActive(true);
-                }
-                else
-                {
-                    if (mid[i].active)
-                        mid[i].SetActive(false);
-                }
+            for (int i = mid_couont-1; i > top_pos; i--)
+            {
+                mid[i].transform.Translate(0, grow_size, 0);
             }
 
             if (top.transform.localPosition.y >= 8)
@@ -95,25 +86,21 @@ public class IvyWork : MonoBehaviour
 
             top.transform.Translate(0, -grow_size, 0);
 
-            for (int i = 0; i < mid_couont; i++)
+            int top_pos = (int)top.transform.localPosition.y;
+
+            for (int i = mid_couont-1; i > top_pos; i--)
             {
-                int top_pos = (int)top.transform.localPosition.y;
+                mid[i].transform.Translate(0, -grow_size, 0);
+            }
 
-                if ((i + 1) <= top_pos)
+            if (top.transform.localPosition.y <= 0)
                 {
-                    if (!mid[i].active)
-                        mid[i].SetActive(true);
-                }
-                else
+                    top.transform.localPosition = new Vector3(top.transform.localPosition.x, 0, top.transform.position.z);
+                for (int i = mid_couont - 1; i > top_pos; i--)
                 {
-                    if (mid[i].active)
-                        mid[i].SetActive(false);
+                    mid[i].transform.localPosition = new Vector3(top.transform.localPosition.x, 0, top.transform.position.z);
                 }
-
-                if (top.transform.localPosition.y <= 1)
-                {
-                    top.transform.localPosition = new Vector3(top.transform.localPosition.x, 1, top.transform.position.z);
-                }
+            }
 
                 //mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, mid[current_glow].transform.localScale.y - grow_size, mid[current_glow].transform.localScale.z);
 
@@ -136,7 +123,7 @@ public class IvyWork : MonoBehaviour
                 //        current_glow = 0;
                 //    }
                 //}
-            }
+            
         }
     }
 }

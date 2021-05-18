@@ -19,14 +19,11 @@ public class IcicleWork : MonoBehaviour
     {
         if (!is_visible.is_visible) return;
         if (TimeManager.state == TimeManager.TimeState.TIME_PAUSE) return;
-
+        animator.speed = 0;
         is_visible.is_visible = false;
 
         switch (WeatherAdministrator.CurrentWeather)
         {
-            case Weather.SUNNY:
-                animator.speed = 0;
-                break;
             case Weather.SNOW:
                 animator.speed = snow_mount;
                 break;

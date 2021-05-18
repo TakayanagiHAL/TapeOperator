@@ -14,7 +14,14 @@ public class IcecleCreater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Instantiate(obj);
         this.transform.gameObject.SetActive(false);
+        Debug.Log("Create");
+        Instantiate(obj,transform.position,transform.localRotation);
+
+    }
+
+    public void CreateIce()
+    {
+
     }
 }

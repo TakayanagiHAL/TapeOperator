@@ -6,11 +6,11 @@ public class WindmillWork : MonoBehaviour
 {
     public IsInCamera is_visible;
 
-    //public float rotate_speed = 0.5f;
+    public float rotate_speed = 0.5f;
 
     public float floor_move = 0.05f;
 
-    public float max_floor = 6.0f;
+    public float max_floor = 8.0f;
 
     public Animator[] animator = new Animator[3];
 
@@ -46,6 +46,8 @@ public class WindmillWork : MonoBehaviour
 
         is_visible.is_visible = false;
 
+        float fl;
+
         //•—‚ÌŽž‚¾‚¯“®‚­
         if (WeatherAdministrator.CurrentWeather == Weather.STORMY)
         {
@@ -56,7 +58,7 @@ public class WindmillWork : MonoBehaviour
 
             Debug.Log("move");
 
-            float fl;
+     
 
                     //‰ñ“]
                    // inpeller_transform.Rotate(0.0f, 0.0f, -rotate_speed);
@@ -86,6 +88,30 @@ public class WindmillWork : MonoBehaviour
             {
                 animator[i].SetBool("IsStormy", false);
             }
+
+
+            //‰ñ“]
+            // inpeller_transform.Rotate(0.0f, 0.0f, -rotate_speed);
+
+            //ˆÚ“®’l
+            fl = -1.0f * floor_move;
+
+
+            //ˆÚ“®’lÝ’è
+            floorL_transform.localPosition = new Vector3(floorL_transform.localPosition.x, floorL_transform.localPosition.y + fl, 0.0f);
+            floorR_transform.localPosition = new Vector3(floorR_transform.localPosition.x, floorR_transform.localPosition.y - fl, 0.0f);
+            cordL_transform.localScale = new Vector3(cordL_transform.localScale.x, cordL_transform.localScale.y - fl, 1.0f);
+            cordR_transform.localScale = new Vector3(cordR_transform.localScale.x, cordR_transform.localScale.y + fl, 1.0f);
+
+            //ã‚ª‚éŒÀŠE‚ð’´‚¦‚½‚ç
+            if (floorR_transform.localPosition.y >= -2.0f)
+            {
+                floorR_transform.localPosition = new Vector3(floorR_transform.localPosition.x, -2.0f, 0.0f);
+                floorL_transform.localPosition = new Vector3(floorL_transform.localPosition.x, -max_floor, 0.0f);
+                cordR_transform.localScale = new Vector3(cordR_transform.localScale.x, 2.0f, 1.0f);
+                cordL_transform.localScale = new Vector3(cordL_transform.localScale.x, max_floor, 1.0f);
+            }
+
         }
        
     }

@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/be-ta/be-ta5.unity
     guid: 6338af3dea7d493459137dfabdd11513
   - enabled: 1
+    path: Assets/Scenes/MapTest.unity
+    guid: f9421fa1dd1979443a6a138b085380ce
+  - enabled: 1
     path: Assets/Scenes/StageSelect/StageSelect.unity
     guid: f978cc1a47f7e5d4fba9c75010c37902
   - enabled: 1

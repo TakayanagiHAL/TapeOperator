@@ -4,29 +4,21 @@ using UnityEngine;
 
 public class playercontroller : MonoBehaviour
 {
-
-    public float BaseJumpPower = 8.5f;   //ジャンプ力
-    public float GravityMultiplier = 10f;    //重力乗数
-    public float MoveSpeed = 6f;    //移動
-    public float GroundCheckDistance = 0.1f;  //下方向へのレイの長さ
-    public float jumpTime = 0.35f; //ジャンプ時間
-
-    public float Direction = 0.0f; 
-    private bool IsGrounded = false;  
-    private float OrigGroundCheckDistance;  
-    private Vector3 GroundNormal;   
-
-    private Transform CamPos;
-    private Vector3 move = Vector3.zero;
+    public float speed = 6.0F;       //歩行速度
+    public float JumpPower = 12.5f;   //ジャンプ力
+    public float gravity = 40.0F;    //重力の大きさ
+    public float Direction = 0.0f;   //移動方向
+    public float IvyUpSpeed = 1.0f;
+    private Vector3 YPower = Vector3.zero;    //y軸方向の処理
+    private Vector3 moveDirection = Vector3.zero;   //全体の移動方向
+    private bool isJumpCheck = false;
     public bool isJump = false;
-    private bool isJumpingCheck = false;
-    private float jumpTimeCounter = 0.0f;
-    private float JumpPower = 0.0f;
-    private int jumpKey = 0;
     public bool isClimb = false;
 
-    private Rigidbody rb;
-    private float PlayerHeight;
+
+
+
+    private CharacterController controller;
 
     public Animator animator;
 
@@ -35,33 +27,46 @@ public class playercontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        PlayerHeight = this.transform.lossyScale.y;
-        OrigGroundCheckDistance = GroundCheckDistance;
-        Debug.Log(PlayerHeight);
-
-        //カメラのポジション取得
- 
-        CamPos = Camera.main.transform;
-  
- 
-        isJump = false;
-
+        controller = GetComponent<CharacterController>();
         stateMachine = new Framework.State.StateMachine<playercontroller>();
-        stateMachine.Initalize(new Player.State.Idle(),this);
+        stateMachine.Initalize(new Player.State.Idle(), this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (TimeManager.state == TimeManager.TimeState.TIME_PAUSE)
+
+        InputKey_State();
+
+        stateMachine.OnUpdate(this);
+    }
+
+    void FixedUpdate()
+    {
+
+        PlayerMovement();
+    }
+
+
+    /*-----------------------------------------
+    キャラを移動方向に向ける関数
+    ------------------------------------------*/
+    void TurnRotation()
+    {
+
+        if (moveDirection != Vector3.zero)
         {
-            animator.speed = 0;
-            return;
+            //キャラの向きを移動方向に合わせる
+            transform.rotation = Quaternion.LookRotation(moveDirection);
         }
 
-        animator.speed = 1;
+    }
 
+    /*-------------------------------------------
+      キー入力
+     --------------------------------------------*/
+    void InputKey_State()
+    {
         //キーの直値
         // カーソルキーの入力を取得
         //右移動
@@ -82,213 +87,63 @@ public class playercontroller : MonoBehaviour
             Direction = 0.0f;
         }
 
-        //ジャンプ
-        //押したとき
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+        if (controller.isGrounded)
         {
-            jumpKey = 1;
-        }
-        //押してる間
-        else if (Input.GetKey(KeyCode.Space) || Input.GetButton("Jump"))
-        {
-            jumpKey = 2;
-        }
-        //離したとき
-        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump"))
-        {
-            jumpKey = 0;
+            //ジャンプ
+            //押したとき
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+            {  
+                isJumpCheck = true;
+            }
         }
 
 
-        /*------------------------------------------
-          入力マネージャの設定からの取得
-         --------------------------------------------*/
-        ////// カーソルキーの入力を取得
-        //Direction = Input.GetAxis("Horizontal");
-        ////ジャンプ
-        ////押したとき
-        //if (Input.GetButtonDown("Jump"))
-        //{
-        //    jumpKey = 1;
-        //}
-        ////押してる間
-        //else if (Input.GetButton("Jump"))
-        //{
-        //    jumpKey = 2;
-        //}
-        ////離したとき
-        //else if (Input.GetButtonUp("Jump"))
-        //{
-        //    jumpKey = 0;
-        //}
-
-        stateMachine.OnUpdate(this);
-
-       // Debug.Log(animator.GetInteger("NowState"));
-    }
-
-    void FixedUpdate()
-    {
-        //移動方向設定
-        move = Direction * CamPos.right;
-
-    
-        
-        //地面当たり判定
-        CheckGroundStatus();
-        //プレイヤー移動
-        PlayerMovement();
     }
 
     /*-----------------------------------------
     プレイヤーの移動処理
     ------------------------------------------*/
-    private void PlayerMovement()
+    void PlayerMovement()
     {
-        //正規化
-        if (move.magnitude > 1f) move.Normalize();
+        moveDirection = Vector3.right * Direction;
+
+        if(moveDirection.magnitude > 1f) moveDirection.Normalize();
 
         //プレイヤーの向きを変える
         TurnRotation();
-        //平面に沿ったベクトルの作成
-        move = Vector3.ProjectOnPlane(move, GroundNormal);
-
-        move.z = 0.0f;
 
         //移動値設定
-        rb.velocity = move * MoveSpeed + new Vector3(0.0f, rb.velocity.y, 0.0f);
+        moveDirection *= speed;
 
         //地面にいるとき
-        if (IsGrounded)
+        if (controller.isGrounded)
         {
             //押したとき
-            if (isJumpingCheck && jumpKey != 0)
+            if (isJumpCheck)
             {
-                jumpTimeCounter = jumpTime;
-                isJumpingCheck = false;
-                isJump= true;
-                IsGrounded = false;
-                JumpPower = BaseJumpPower;
+                YPower.y = 0.0f;
+                isJumpCheck = false;
+                isJump = true;
+                YPower.y += JumpPower * 1;
+
             }
 
-            //地面までの距離の設定 
-            GroundCheckDistance = 0.1f;
         }
         //地面から離れているとき
         else
         {
-            //離したとき
-            if (jumpKey == 0)
+            if(YPower.y <= 0)
             {
                 isJump = false;
             }
-            //落下処理
-            if (!isJump && !isClimb)
-            {
-                //重力計算
-                Vector3 extraGravityForce = (Physics.gravity * GravityMultiplier) - Physics.gravity;
-                //重力分下げる
-                rb.AddForce(extraGravityForce);
-
-                GroundCheckDistance = rb.velocity.y <= 0 ? OrigGroundCheckDistance : 0.01f;
-            }
-
+            //重力計算
+            YPower.y -= gravity * Time.deltaTime;
 
 
         }
-        
-        if (isJump)
-        {
-           
-            jumpTimeCounter -= Time.deltaTime;
-            //押してる間の処理
-            if (jumpKey == 2)
-            { 
-                JumpPower -= 0.2f;
-                rb.velocity = new Vector3(rb.velocity.x, 1 * JumpPower, rb.velocity.z);
-            }
-            if (jumpTimeCounter < 0)
-            {
-                isJump = false;
-            }
-        }
-        //離したとき
-        if (jumpKey == 0)
-        {
-            isJumpingCheck = true;
-        }
-
-
-    }
-
-
-    /*-----------------------------------------
-    キャラを移動方向に向ける関数
-    ------------------------------------------*/
-    void TurnRotation()
-    {
-        
-        if (move != Vector3.zero)
-        {
-            //キャラの向きを移動方向に合わせる
-            transform.rotation = Quaternion.LookRotation(move);
-        }
-
-    }
-
-
-    /*-----------------------------------------
-    地面の当たり判定
-    ------------------------------------------*/
-    private void CheckGroundStatus()
-    {
-        RaycastHit hitInfo;
-
-
-        //Debug.DrawLine(transform.position + (Vector3.down * ((PlayerHeight / 2) - 0.01f)), transform.position + (Vector3.down * ((PlayerHeight / 2) - 0.01f)) + (Vector3.down * GroundCheckDistance), Color.red);
-        if (Physics.Raycast(transform.position + (Vector3.down * ((PlayerHeight / 2) - 0.01f)), Vector3.down, out hitInfo, GroundCheckDistance))
-        {
-            GroundNormal = hitInfo.normal;
-            IsGrounded = true;
-            rb.velocity = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
-        }
-        else
-        {
-
-            IsGrounded = false;
-            GroundNormal = Vector3.up;
-        }
-
-    }
-
-    //指定の物と当たっている間
-    void OnCollisionStay(Collision other)
-    {
-        float Hori = Input.GetAxis("Vertical");
-        //蔦と当たっているとき
-        if (other.gameObject.tag == "ivy")
-        {
-            //Wキーが押されていたら
-            if (Input.GetKey(KeyCode.W) || (Hori > 0))
-            {
-                isClimb = true;
-            }
-            //Wキーが押されていたら
-            if (Input.GetKeyUp(KeyCode.W) || ((Hori <= 0) && isClimb))
-            {
-                isClimb = false;
-            }
-
-        }
-    }
-    //離れたとき
-    void OnCollisionExit(Collision other)
-    {
-        //蔦と当たっているとき
-        if (other.gameObject.tag == "ivy")
-        {
-            isClimb = false;
-        }
+       // Debug.Log(controller.isGrounded);
+        controller.Move((moveDirection + YPower) * Time.deltaTime);
     }
 
 }
+

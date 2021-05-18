@@ -15,30 +15,9 @@ public class PlayerCollision : MonoBehaviour
         
     }
 
-    //指定の物と当たっている間
-    void OnCollisionStay(Collision other)
-    {
-        float Hori = Input.GetAxis("Vertical");
-
-        //蔦と当たっているとき
-        if (other.gameObject.tag == "ivy")
-        {
-            //Wキーが押されていたら
-            if (Input.GetKey(KeyCode.W) || (Hori > 0))
-            {
-                //蔦で上がる最大値より低い間上昇させる
-                if (transform.position.y < IvyUpMaxPos)
-                {
-                    transform.position += new Vector3(0, IvyUpSpeed, 0);
-                }
-            }
-
-        }
-    }
-
 
     //指定の物に当たった時の判定
-    void OnCollisionEnter(Collision other)
+     void OnTriggerEnter(Collider other)
     {
         //ゴールと当たった時
         if (other.gameObject.tag == "goal")
