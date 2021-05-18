@@ -1,0 +1,249 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8658157398136563423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7773876407373778533}
+  m_Layer: 0
+  m_Name: gimmicks_ice_icicle 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7773876407373778533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658157398136563423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3723855238836396385}
+  - {fileID: 314145888994676420}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &276596963167709487
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7773876407373778533}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_Name
+      value: gimmicks_ice_icicle_02_up
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295142336878616900, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295142336878616900, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295142336878616900, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107432111404319926, guid: a9ebc3a53449368498ced5f29955d6b6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e97026466d64cf844bb5c190a401bd58, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9ebc3a53449368498ced5f29955d6b6, type: 3}
+--- !u!4 &314145888994676420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9ebc3a53449368498ced5f29955d6b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 276596963167709487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3758099825869932170
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7773876407373778533}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9395447
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_Name
+      value: gimmicks_ice_icicle_02_down
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634899706118409850, guid: 4370ce87505f1e943979ff55ce0a2e30,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4370ce87505f1e943979ff55ce0a2e30, type: 3}
+--- !u!4 &3723855238836396385 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4370ce87505f1e943979ff55ce0a2e30,
+    type: 3}
+  m_PrefabInstance: {fileID: 3758099825869932170}
+  m_PrefabAsset: {fileID: 0}

@@ -29,7 +29,7 @@ public class WoodBox : MonoBehaviour
 
         is_visible.is_visible = false;
 
-        if(WeatherAdministrator.CurrentWeather == Weather.STORMY)
+        if(WeatherAdministrator.CurrentWeather == Weather.STORMY||WeatherAdministrator.CurrentWeather == Weather.BLIZZARD)
         {
             rigidbody.AddForce(vector * wind_force);
         }

@@ -38,7 +38,7 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(state);
+       // Debug.Log(state);
 
         if (state == TimeState.TIME_PAUSE) return;
 
