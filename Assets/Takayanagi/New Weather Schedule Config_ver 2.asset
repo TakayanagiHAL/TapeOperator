@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b1ed53701903c4fa9ee0d27019ff18, type: 3}
   m_Name: New Weather Schedule Config_ver 2
   m_EditorClassIdentifier: 
-  weathers: 02000000020000000200000002000000
+  weathers: 00000000000000000000000000000000
   age:
   - 5
   - 5

@@ -6,12 +6,14 @@ public class DoorWork : MonoBehaviour
 {
     [SerializeField] SwitchWork switch_obj;
 
-    private Transform door;
+    private Animator animator;
+
+    private bool is_open;
 
     // Start is called before the first frame update
     void Start()
     {
-        door = transform.GetChild(0);
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -19,11 +21,21 @@ public class DoorWork : MonoBehaviour
     {
         if (switch_obj.is_enter)
         {
-            door.gameObject.SetActive(false);
+            if (!is_open)
+            {
+                animator.SetFloat("speed", 1);
+                animator.Play("gate", 0, 0.0f);
+                is_open = true;
+            }
         }
         else
         {
-            door.gameObject.SetActive(true);
+            if (is_open)
+            {
+                animator.SetFloat("speed", -1);
+                animator.Play("gate", 0, 1.0f/60.0f*80.0f);
+                is_open = false;
+            }
         }
     }
 }

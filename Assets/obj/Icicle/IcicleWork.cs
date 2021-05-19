@@ -5,7 +5,7 @@ using UnityEngine;
 public class IcicleWork : MonoBehaviour
 {
     [SerializeField] IsInCamera is_visible;
-    [SerializeField] float snow_mount = 1.0f / 5.0f/60.0f;
+    [SerializeField] float snow_mount    = 1.0f/5.0f/60.0f;
     [SerializeField] float blizard_mount = 1.0f/3.0f/60.0f;
     [SerializeField] Transform icicle;
     [SerializeField] GameObject obj;

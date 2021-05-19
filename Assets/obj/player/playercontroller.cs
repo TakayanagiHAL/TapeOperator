@@ -143,6 +143,8 @@ public class playercontroller : MonoBehaviour
         }
        // Debug.Log(controller.isGrounded);
         controller.Move((moveDirection + YPower) * Time.deltaTime);
+
+        Debug.Log(controller.isGrounded);
     }
 
 }
