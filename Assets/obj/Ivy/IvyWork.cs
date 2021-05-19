@@ -46,13 +46,13 @@ public class IvyWork : MonoBehaviour
         {
             Debug.Log("glow");
 
-            top.transform.Translate(0, grow_size, 0);
+            top.transform.localPosition = new Vector3(top.transform.localPosition.x, top.transform.localPosition.y + grow_size, top.transform.localPosition.z);
 
             int top_pos = (int)top.transform.localPosition.y;
 
             for (int i = mid_couont-1; i > top_pos; i--)
             {
-                mid[i].transform.Translate(0, grow_size, 0);
+                mid[i].transform.localPosition = new Vector3(mid[i].transform.localPosition.x, mid[i].transform.localPosition.y + grow_size, mid[i].transform.localPosition.z);
             }
 
             if (top.transform.localPosition.y >= 8)

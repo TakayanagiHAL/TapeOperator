@@ -14,10 +14,13 @@ public class IcicleBlockWork : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        flame++;
-        if (flame >= 60 * 5)
+        if (WeatherAdministrator.CurrentWeather == Weather.SUNNY)
         {
-            Destroy(this.gameObject);
+            flame++;
+            if (flame >= 60 * 5)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

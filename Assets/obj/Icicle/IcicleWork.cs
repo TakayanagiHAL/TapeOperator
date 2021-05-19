@@ -5,9 +5,11 @@ using UnityEngine;
 public class IcicleWork : MonoBehaviour
 {
     [SerializeField] IsInCamera is_visible;
-    [SerializeField] float snow_mount = 3.0f / 5.0f;
-    [SerializeField] float blizard_mount = 1.0f;
-    [SerializeField] Animator animator;
+    [SerializeField] float snow_mount = 1.0f / 5.0f/60.0f;
+    [SerializeField] float blizard_mount = 1.0f/3.0f/60.0f;
+    [SerializeField] Transform icicle;
+    [SerializeField] GameObject obj;
+    private float flame =0;
     
     // Start is called before the first frame update
     void Start()
@@ -19,17 +21,24 @@ public class IcicleWork : MonoBehaviour
     {
         if (!is_visible.is_visible) return;
         if (TimeManager.state == TimeManager.TimeState.TIME_PAUSE) return;
-        animator.speed = 0;
         is_visible.is_visible = false;
 
         switch (WeatherAdministrator.CurrentWeather)
         {
             case Weather.SNOW:
-                animator.speed = snow_mount;
+                flame += snow_mount;
+                icicle.localScale = new Vector3(icicle.localScale.x, icicle.localScale.y + snow_mount, icicle.localScale.z);
                 break;
             case Weather.BLIZZARD:
-                animator.speed = 1;
+                flame += blizard_mount;
+                icicle.localScale = new Vector3(icicle.localScale.x, icicle.localScale.y + blizard_mount, icicle.localScale.z);
                 break;
+        }
+        if (flame >= 1.0f)
+        {
+            Instantiate(obj, transform.position, transform.rotation);
+            flame = 0.0f;
+            icicle.localScale = new Vector3(icicle.localScale.x, 0.0f, icicle.localScale.z);
         }
     }
 }
