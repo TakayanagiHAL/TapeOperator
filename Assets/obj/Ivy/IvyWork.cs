@@ -59,27 +59,6 @@ public class IvyWork : MonoBehaviour
             {
                 top.transform.localPosition = new Vector3(top.transform.localPosition.x, 8, top.transform.position.z);
             }
-            //mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, (mid[current_glow].transform.localScale.y + grow_size), mid[current_glow].transform.localScale.z);
-
-            //for (int i = current_glow; i < mid_couont; i++)
-            //{
-            //    mid[i].transform.localPosition.Set(mid[current_glow].transform.localPosition.x, mid[current_glow].transform.localPosition.y + grow_size / 2, mid[current_glow].transform.localScale.z);
-            //}
-
-            //top.transform.localPosition.Set(top.transform.localPosition.x, top.transform.localPosition.y + grow_size / 2, top.transform.localScale.z);
-
-
-            //if (mid[current_glow].transform.localScale.y >= 1)
-            //{
-            //    mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, 1.0f, mid[current_glow].transform.localScale.z);
-
-            //    current_glow++;
-
-            //    if (current_glow >= mid_couont)
-            //    {
-            //        current_glow = 7;
-            //    }
-            //}
         }
         else
         {
@@ -102,27 +81,7 @@ public class IvyWork : MonoBehaviour
                 }
             }
 
-                //mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, mid[current_glow].transform.localScale.y - grow_size, mid[current_glow].transform.localScale.z);
-
-                //for (int i = mid_couont-1; i >= current_glow; i--)
-                //{
-                //    mid[i].transform.localPosition.Set(mid[current_glow].transform.localPosition.x, mid[current_glow].transform.localPosition.y - grow_size / 2, mid[current_glow].transform.localPosition.z);
-                //}
-
-                //top.transform.localPosition.Set(top.transform.localPosition.x, top.transform.localPosition.y - grow_size / 2, top.transform.localScale.z);
-
-
-                //if (mid[current_glow].transform.localScale.y <= 0.1)
-                //{
-                //    mid[current_glow].transform.localScale.Set(mid[current_glow].transform.localScale.x, 0.1f, mid[current_glow].transform.localScale.z);
-
-                //    current_glow--;
-
-                //    if (current_glow <0)
-                //    {
-                //        current_glow = 0;
-                //    }
-                //}
+             
             
         }
     }

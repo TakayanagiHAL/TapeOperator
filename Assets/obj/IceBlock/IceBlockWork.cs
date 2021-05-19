@@ -7,7 +7,6 @@ public class IceBlockWork : MonoBehaviour
     [SerializeField] float melt_speed = 1.0f / 60.0f/5.0f;
     [SerializeField] IsInCamera is_visible;
     [SerializeField] Animator animator;
-    [SerializeField] GameObject collision;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +27,7 @@ public class IceBlockWork : MonoBehaviour
         {
             Debug.Log("melt");
             animator.speed = 1;
-            collision.transform.localScale = new Vector3(collision.transform.localScale.x, collision.transform.localScale.y - melt_speed, collision.transform.localScale.z);
-            if (collision.transform.localScale.y <= 0)
-            {
-                collision.transform.localScale = new Vector3(collision.transform.localScale.x, 0, collision.transform.localScale.z);
-            }
+           
         }
     }
 }
