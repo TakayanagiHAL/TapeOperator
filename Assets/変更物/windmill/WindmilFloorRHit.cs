@@ -31,7 +31,7 @@ public class WindmilFloorRHit : MonoBehaviour
     {
 
         isHitR = true;
-
+        other.gameObject.transform.SetParent(parentGameObject.transform);
 
     }
 

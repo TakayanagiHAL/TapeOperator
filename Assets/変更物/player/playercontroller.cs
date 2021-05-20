@@ -38,6 +38,7 @@ public class playercontroller : MonoBehaviour
 
         InputKey_State();
 
+        Debug.Log(controller.isGrounded);
         stateMachine.OnUpdate(this);
     }
 
@@ -141,7 +142,7 @@ public class playercontroller : MonoBehaviour
 
 
         }
-        Debug.Log(controller.isGrounded);
+        
         controller.Move((moveDirection + YPower) * Time.deltaTime);
     }
 

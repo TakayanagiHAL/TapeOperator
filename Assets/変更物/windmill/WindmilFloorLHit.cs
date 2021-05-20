@@ -33,8 +33,8 @@ public class WindmilFloorLHit : MonoBehaviour
     {
         
         isHitL = true;
+        other.gameObject.transform.SetParent(parentGameObject.transform);
 
-       
     }
 
     void OnTriggerExit(Collider other)
