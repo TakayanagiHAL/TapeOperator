@@ -9,6 +9,8 @@ public class WetherUI : MonoBehaviour
 
     public int now_wether;
 
+    [SerializeField] float wether_age = 10;
+
     public WetherMark[] wetherMarks = new WetherMark[4];
 
     public Sprite[] back_sprite = new Sprite[4];
@@ -51,7 +53,7 @@ public class WetherUI : MonoBehaviour
             wetherMarks[now_wether].SetSprite(true);
         }
 
-        transform.rotation = Quaternion.Euler(0, 0, (90.0f * now_wether) + (manager.GetCurrentTime() * 18.0f));
+        transform.rotation = Quaternion.Euler(0, 0, (90.0f * now_wether) + (manager.GetCurrentTime() * 90.0f/wether_age));
     }
 
 

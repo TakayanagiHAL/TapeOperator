@@ -14,6 +14,8 @@ public class DoorWork : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        is_open = false;
+        animator.SetFloat("speed", 0);
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class DoorWork : MonoBehaviour
                 animator.SetFloat("speed", 1);
                 animator.Play("gate", 0, 0.0f);
                 is_open = true;
+                Debug.Log("open");
             }
         }
         else
@@ -35,6 +38,7 @@ public class DoorWork : MonoBehaviour
                 animator.SetFloat("speed", -1);
                 animator.Play("gate", 0, 1.0f/60.0f*80.0f);
                 is_open = false;
+                Debug.Log("close");
             }
         }
     }

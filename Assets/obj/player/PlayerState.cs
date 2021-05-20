@@ -26,7 +26,7 @@ namespace Player.State{
 
             obj.animator.SetInteger("NowState", 2);
 
-            Debug.Log("is run");
+            //Debug.Log("is run");
         }
 
         public override void OnExit(playercontroller obj)
@@ -60,7 +60,7 @@ namespace Player.State{
         {
             base.OnEnter(obj);
             obj.animator.SetInteger("NowState", 0);
-            Debug.Log("is idle");
+           // Debug.Log("is idle");
         }
 
         public override void OnExit(playercontroller obj)
@@ -95,7 +95,7 @@ namespace Player.State{
         {
             base.OnEnter(obj);
             obj.animator.SetInteger("NowState", 3);
-            Debug.Log("is climb");
+           // Debug.Log("is climb");
         }
 
         public override void OnExit(playercontroller obj)
@@ -131,7 +131,7 @@ namespace Player.State{
             base.OnEnter(obj);
             obj.animator.SetInteger("NowState", 1);
 
-            Debug.Log("is jump");
+          //  Debug.Log("is jump");
         }
 
         public override void OnExit(playercontroller obj)

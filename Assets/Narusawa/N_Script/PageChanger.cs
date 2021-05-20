@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PageChanger : MonoBehaviour
 {
-    [SerializeField] GameObject[] Canvas;   //各ページのCanvasを入れる配列
+    [SerializeField] GameObject[] Pages;   //各ページのCGameObjectを入れる配列
     public static int PageNum = 0;         //今のページ数を表す変数
     private Animator anim;                 //Animator取得用変数
 
     // Start is called before the first frame update
     void Start()
     {
+        //初期化
+        PageNum = 0;
+
         //全部のCanvasをfalseにする
-        for(int i = 0; i < Canvas.Length; i++)
+        for(int i = 0; i < Pages.Length; i++)
         {
-            Canvas[i].SetActive(false);
+            Pages[i].SetActive(false);
         }
 
         //アルバムのAnimatorコンポーネントを設定
@@ -34,7 +37,7 @@ public class PageChanger : MonoBehaviour
         //ジャンプボタンで本を閉じる
         if (Input.GetButtonDown("Jump"))
         {
-            Canvas[PageNum].SetActive(false);   //今のページのCanvasをfalseにする
+            Pages[PageNum].SetActive(false);   //今のページのGameObjectをfalseにする
             anim.SetBool("CloseFlag", true);
         }
     }
@@ -46,7 +49,7 @@ public class PageChanger : MonoBehaviour
         //ページ数が0より大きい場合
         if (PageNum > 0)
         {
-            Canvas[PageNum].SetActive(false);       //今のページのCanvasをfalseにする
+            Pages[PageNum].SetActive(false);       //今のページのGameObjectをfalseにする
             PageNum--;                              //ページ数を１つ減らす  
             anim.SetBool("BeforePageFlag", true);  //前のページのアニメーションをtrueにする
         }
@@ -56,9 +59,9 @@ public class PageChanger : MonoBehaviour
     //次のページUIを呼ぶ関数
     public void NextPageCall()
     {
-        if (PageNum < Canvas.Length - 1) 
+        if (PageNum < Pages.Length - 1) 
         {
-            Canvas[PageNum].SetActive(false);   //今のページのCanvasをfalseにする
+            Pages[PageNum].SetActive(false);   //今のページのGameObjectをfalseにする
             PageNum++;                          //ページ数を１つ増やす  
             anim.SetBool("NextPageFlag", true);    //次のページのアニメーションをtrueにする
         }
@@ -66,6 +69,6 @@ public class PageChanger : MonoBehaviour
 
     public void CanvasDisp()
     {
-        Canvas[PageNum].SetActive(true);    //指定ページのCanvasをtrueにする
+        Pages[PageNum].SetActive(true);    //指定ページのGameObjectをtrueにする
     }
 }
