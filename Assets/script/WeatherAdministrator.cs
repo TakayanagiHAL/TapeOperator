@@ -79,8 +79,9 @@ public class WeatherAdministrator : MonoBehaviour
                 WindParticle.gameObject.SetActive(false);
                 Blizzard1Particle.gameObject.SetActive(false);
                 lightmanager.SetExPosure(lightconfig.SunNum);
+               
                 break;
-            case Weather.RAIN:;
+            case Weather.RAIN:
                 Rain1EmObj.rateOverTime = 100;
                 Rain2EmObj.rateOverTime = 100;
                 Snow1EmObj.rateOverTime = 0;
@@ -94,6 +95,7 @@ public class WeatherAdministrator : MonoBehaviour
                 WindParticle.gameObject.SetActive(false);
                 Blizzard1Particle.gameObject.SetActive(false);
                 lightmanager.SetExPosure(lightconfig.RainNum);
+           
                 break;
             case Weather.STORMY:
                 Rain1EmObj.rateOverTime = 0;
@@ -109,6 +111,7 @@ public class WeatherAdministrator : MonoBehaviour
                 WindParticle.gameObject.SetActive(true);
                 Blizzard1Particle.gameObject.SetActive(false);
                 lightmanager.SetExPosure(lightconfig.StormyNum);
+            
                 break;
             case Weather.SNOW:
                 Rain1EmObj.rateOverTime = 0;
@@ -124,6 +127,7 @@ public class WeatherAdministrator : MonoBehaviour
                 WindParticle.gameObject.SetActive(false);
                 Blizzard1Particle.gameObject.SetActive(false);
                 lightmanager.SetExPosure(lightconfig.SnowNum);
+              
                 break;
             case Weather.BLIZZARD:
                 Rain1EmObj.rateOverTime = 0;
@@ -139,6 +143,7 @@ public class WeatherAdministrator : MonoBehaviour
                 WindParticle.gameObject.SetActive(false);
                 Blizzard1Particle.gameObject.SetActive(true);
                 lightmanager.SetExPosure(lightconfig.BlizzardNum);
+               
                 break;
             default:
                 break;
@@ -150,7 +155,33 @@ public class WeatherAdministrator : MonoBehaviour
     {
   
             CurrentWeather = weather;
-        
+
+        switch (CurrentWeather)
+        {
+            case Weather.SUNNY:
+            
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Sunny");
+                break;
+            case Weather.RAIN:
+              
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Rain");
+                break;
+            case Weather.STORMY:
+               
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Wind");
+                break;
+            case Weather.SNOW:
+               
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Snow");
+                break;
+            case Weather.BLIZZARD:
+               
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Blizzard");
+                break;
+            default:
+                break;
+        }
+
     }
 
     //“V‹CŽæ“¾

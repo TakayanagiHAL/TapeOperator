@@ -50,8 +50,8 @@ public class TimeManager : MonoBehaviour
             bool lt = Input.GetButton("Rewind");
             if (Input.GetKey(KeyCode.UpArrow) || (rt && lt)) 
             {
-                state = TimeState.TIME_STOP;
-                frame--;
+                //state = TimeState.TIME_STOP;
+                //frame--;
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
@@ -61,16 +61,21 @@ public class TimeManager : MonoBehaviour
             {
                 state = TimeState.TIME_FAST;
                 frame--;
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_WeatherUI");
             }
             if (Input.GetKey(KeyCode.LeftArrow) || (!rt && lt))
             {
                 state = TimeState.TIME_BACK;
                 frame--;
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_WeatherUI");
             }
+
+           
         }
         else
         {
             state = TimeState.TIME_PLAY;
+            SoundPlayer.GetSoundManagaer().StopSe("SE_WeatherUI");
         }
 
         day_count++;

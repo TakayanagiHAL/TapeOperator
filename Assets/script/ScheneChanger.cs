@@ -45,7 +45,14 @@ public class ScheneChanger : MonoBehaviour
    // [EnumAction(typeof(ScheneChanger.SCENE_NAME))]
    static public void ChangeScene(int name)
     {
+        SoundPlayer.GetSoundManagaer().StopBgm();
+        SoundPlayer.GetSoundManagaer().StopAllSe();
         SceneManager.LoadScene(scene_name[(int)name]);
+    }
+
+    static public void RetryScene()
+    {
+        ChangeScene(ZoomPhoto.StageNum);
     }
   
 }

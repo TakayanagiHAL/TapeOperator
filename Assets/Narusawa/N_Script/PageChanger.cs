@@ -30,6 +30,7 @@ public class PageChanger : MonoBehaviour
     {
         //決定ボタンで本を開く
         if (Input.GetButtonDown("Select"))
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Open");
         {
             anim.SetBool("OpenFlag", true);
         }
@@ -46,9 +47,11 @@ public class PageChanger : MonoBehaviour
     //前のページUIを呼ぶ関数
     public void BeforePageCall()
     {
+
         //ページ数が0より大きい場合
         if (PageNum > 0)
         {
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Open");
             Pages[PageNum].SetActive(false);       //今のページのGameObjectをfalseにする
             PageNum--;                              //ページ数を１つ減らす  
             anim.SetBool("BeforePageFlag", true);  //前のページのアニメーションをtrueにする
@@ -61,6 +64,7 @@ public class PageChanger : MonoBehaviour
     {
         if (PageNum < Pages.Length - 1) 
         {
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Open");
             Pages[PageNum].SetActive(false);   //今のページのGameObjectをfalseにする
             PageNum++;                          //ページ数を１つ増やす  
             anim.SetBool("NextPageFlag", true);    //次のページのアニメーションをtrueにする

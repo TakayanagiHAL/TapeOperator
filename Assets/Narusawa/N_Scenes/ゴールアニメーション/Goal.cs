@@ -75,6 +75,12 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.tag == ("Player"))
         {
+            SoundPlayer.StopBGM();
+
+            SoundPlayer.GetSoundManagaer().StopAllSe();
+
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Clear");
+
             Debug.Log("ÉSÅ[Éã");
 
             GameUI.SetActive(false);

@@ -47,6 +47,7 @@ public class ZoomPhoto : MonoBehaviour
         //ズームをする
         if (Input.GetButtonDown("Select"))
         {
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Decision");
             ZoomStart_Flag = true;
             fade.StartFade();
         }
@@ -69,6 +70,7 @@ public class ZoomPhoto : MonoBehaviour
                 }
                 if (Fade.FadeFinish)
                 {
+                    SoundPlayer.StopBGM();
                     //次のシーンを読み込む
                     StageNum = (int)scene;
                     ScheneChanger.ChangeScene(StageNum);
