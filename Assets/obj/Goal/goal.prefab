@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5789052041912343235}
   - component: {fileID: 3377661481316749708}
-  - component: {fileID: 6175248811789728493}
+  - component: {fileID: 2913713906128398395}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -45,7 +45,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: -1.26}
---- !u!114 &6175248811789728493
+--- !u!114 &2913713906128398395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,10 +54,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032478547501255986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aa41b06ca2a6164cb91df2b4c027c65, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a6e9fadc36c7ae41ac4ab48c1421b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next_scene: 0
+  ThisStageNum: 0
+  MainCamera: {fileID: 0}
+  ClearCamera: {fileID: 0}
+  GoalPanel: {fileID: 0}
+  GoalImage: {fileID: 0}
 --- !u!1 &4124280134235408245
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +155,7 @@ GameObject:
   - component: {fileID: 3889525184163132266}
   - component: {fileID: 8465380878320493973}
   m_Layer: 0
-  m_Name: Goal
+  m_Name: goal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

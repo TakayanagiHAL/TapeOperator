@@ -114,7 +114,7 @@ public class PhotoSelect : MonoBehaviour
         {
             if (Goal.StageNum < 5)
             {
-                Page1.GetComponent<PhotoSelect>().Photos[(Goal.StageNum / 5) + 1].GetComponent<Renderer>().material = ClearMaterial[Goal.StageNum];
+                Page1.GetComponent<PhotoSelect>().Photos[Goal.StageNum + 1].GetComponent<Renderer>().material = ClearMaterial[Goal.StageNum];
                 Debug.Log(Goal.StageNum);
             }else if (Goal.StageNum < 10)
             {

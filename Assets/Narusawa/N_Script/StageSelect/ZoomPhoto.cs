@@ -14,6 +14,7 @@ public class ZoomPhoto : MonoBehaviour
     [SerializeField] GameObject SceneChanger;           //ScheneChangerがついたオブジェクトを取得
     [SerializeField] GameObject PhotoSelect_obj;        //PhotoSelectのついたオブジェクトを取得
     [SerializeField] ScheneChanger.SCENE_NAME scene;    //読み込むシーン
+    [SerializeField] Fade fade;
     private bool ZoomStart_Flag = false;    //ズームを始めるフラグ
     private Vector3 Target;                 //選択された写真の位置＋Distance
     private Transform CamTns;               //カメラのtransform取得用
@@ -47,6 +48,7 @@ public class ZoomPhoto : MonoBehaviour
         if (Input.GetButtonDown("Select"))
         {
             ZoomStart_Flag = true;
+            fade.StartFade();
         }
 
         if (ZoomStart_Flag == true)
@@ -65,14 +67,25 @@ public class ZoomPhoto : MonoBehaviour
 
                     Invoke("SceneLoad", WaveTime);
                 }
+                if (Fade.FadeFinish)
+                {
+                    //次のシーンを読み込む
+                    StageNum = (int)scene;
+                    ScheneChanger.ChangeScene(StageNum);
+                    Fade.FadeFinish = false;
+                    ZoomStart_Flag = false;
+                }
             }
             else
             {
-                //次のシーンを読み込む
-                StageNum = (int)scene;
-                ScheneChanger.ChangeScene(StageNum);
-
-                ZoomStart_Flag = false;
+                if (Fade.FadeFinish)
+                {
+                    //次のシーンを読み込む
+                    StageNum = (int)scene;
+                    ScheneChanger.ChangeScene(StageNum);
+                    Fade.FadeFinish = false;
+                    ZoomStart_Flag = false;
+                }
             }
         }
         
@@ -82,8 +95,6 @@ public class ZoomPhoto : MonoBehaviour
     {
         //次のシーンを読み込む
         StageNum = (int)scene;
-        ScheneChanger.ChangeScene((int)scene);
-
-        ZoomStart_Flag = false;
+       // ScheneChanger.ChangeScene((int)scene);
     }
 }

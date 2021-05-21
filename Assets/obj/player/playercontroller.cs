@@ -35,7 +35,10 @@ public class playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (TimeManager.state == TimeManager.TimeState.TIME_PAUSE)
+        {
+            return;
+        }
         InputKey_State();
 
         stateMachine.OnUpdate(this);
@@ -43,7 +46,10 @@ public class playercontroller : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        if (TimeManager.state == TimeManager.TimeState.TIME_PAUSE)
+        {
+            return;
+        }
         PlayerMovement();
     }
 

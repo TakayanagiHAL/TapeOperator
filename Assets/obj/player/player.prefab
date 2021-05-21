@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3381159632979188097}
   - component: {fileID: -5811263696393405883}
   - component: {fileID: 6987297910677711896}
+  - component: {fileID: 6847562799811960495}
+  - component: {fileID: 8049142076899897962}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -102,6 +104,39 @@ MonoBehaviour:
   isJump: 0
   isClimb: 0
   animator: {fileID: 2769272606755505234}
+--- !u!114 &6847562799811960495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499706182109528045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090da511f8374135a15dd8655adcd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordingInterval: 0.5
+  _mode: 1
+  _globalClockKey: Pause
+  _rewindable: 1
+  _recordingDuration: 30
+--- !u!114 &8049142076899897962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499706182109528045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e02c4a0d9b6c47e09fc7c7924d2b953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localTimeScale: 1
+  _paused: 0
+  _parentKey: 
+  _parentBlend: 0
 --- !u!1001 &3488063217754375435
 PrefabInstance:
   m_ObjectHideFlags: 0

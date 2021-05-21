@@ -10,31 +10,21 @@ public class ScheneChanger : MonoBehaviour
     public enum SCENE_NAME
     {
         STAGE_SELECT,
-        BETA1,
-        BETA2,
-        BETA3,
-        BETA4,
-        BETA5,
+        GAME_OVER,
         EGYPT_1,
         EGYPT_2,
         EGYPT_3,
-        EGYPT_4,
-        EGYPT_5,
+        RUSSIA_1,
         SCENE_MAX
     }
 
     private static string[] scene_name = new string[] {
-        "Scenes/StageSelect/StageSelect",
-        "Takayanagi/be-ta/be-ta1",
-        "Takayanagi/be-ta/be-ta2",
-        "Takayanagi/be-ta/be-ta3",
-        "Takayanagi/be-ta/be-ta4",
-        "Takayanagi/be-ta/be-ta5",
-        "Scenes/Egypt/Egypt1_1/Egypt1_1",
-        "Scenes/Egypt/Egypt1_2/Egypt1_2",
-        "Scenes/Egypt/Egypt1_3/Egypt1_3",
-        "Scenes/Egypt/Egypt1_4/Egypt1_4",
-        "Scenes/Egypt/Egypt1_5/Egypt1_5",
+        "Narusawa/N_scenes/StageSelect",
+        "Narusawa/N_scenes/GameOver",
+        "Scenes/Egypt/1-1/Egypt_Sunny_Sample",
+        "Scenes/Egypt/1-2/Egypt_1_2",
+        "Scenes/Egypt/1-3/Egypt_1_3",
+        "Scenes/Russia/Russia_1_1"
     };
 
     // Start is called before the first frame update

@@ -28,17 +28,17 @@ public class LightManager : MonoBehaviour
         if (exposurenum >= exposuretargetvalue - 0.01f && exposurenum <= exposuretargetvalue + 0.01f)
         {
             exposurenum = exposuretargetvalue;
-            Debug.Log("just");
+           // Debug.Log("just");
         }
         else if (exposurenum > exposuretargetvalue)
         {
             exposurenum -= exposurechangevalue;
-            Debug.Log("big");
+           // Debug.Log("big");
         }
         else if (exposurenum < exposuretargetvalue)
         {
             exposurenum += exposurechangevalue;
-            Debug.Log("small");
+           // Debug.Log("small");
         }
 
         mat.SetFloat("_Exposure", exposurenum);

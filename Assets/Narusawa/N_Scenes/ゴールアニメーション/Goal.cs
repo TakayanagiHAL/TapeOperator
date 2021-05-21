@@ -9,7 +9,7 @@ public class Goal : MonoBehaviour
         EGYPT_1,
         EGYPT_2,
         EGYPT_3,
-        EGYPT_4,
+        RUSSIA_1,
         EGYPT_5,
         STAGE6,
         STAGE7,
@@ -23,6 +23,8 @@ public class Goal : MonoBehaviour
     [SerializeField] Camera MainCamera;         //メインカメラ
     [SerializeField] Camera ClearCamera;        //クリア時のカメラ
     [SerializeField] GameObject GoalPanel;      //ゴールのUIパネル
+    [SerializeField] GameObject GameUI;
+    [SerializeField] Fade fade;
     public static bool ColorFlag = false;       //ステージセレクトの色付け
     public static int StageNum;                 //ステージ番号
 
@@ -51,7 +53,22 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(anim.GetCurrentAnimatorStateInfo(0).nameHash == Animator.StringToHash("Base Layer.End"))
+        {
+            if (!Fade.FadeStart)
+            {
+                if (Fade.FadeFinish)
+                {
+                    Fade.FadeFinish = false;
+                    ScheneChanger.ChangeScene((int)ScheneChanger.SCENE_NAME.STAGE_SELECT);
+                }
+                else
+                {
+                    fade.StartFade();
+                }
+            }
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,7 +77,11 @@ public class Goal : MonoBehaviour
         {
             Debug.Log("ゴール");
 
+            GameUI.SetActive(false);
+
             GoalPanel.SetActive(true);
+
+            TimeManager.state = TimeManager.TimeState.TIME_PAUSE;
 
             //プレイヤーのゴールアニメーション
             playercontroller player = other.GetComponent<playercontroller>();
