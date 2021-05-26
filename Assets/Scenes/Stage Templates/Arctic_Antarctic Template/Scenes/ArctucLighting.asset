@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c385bf2b73fa54248a1a01ad94e80906, type: 3}
+  m_Name: ArctucLighting
+  m_EditorClassIdentifier: 
+  SunNum: 0.42
+  RainNum: 0.42
+  SnowNum: 0.42
+  StormyNum: 0.42
+  BlizzardNum: 0.42

@@ -52,6 +52,8 @@ public class PhotoSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ZoomPhoto.GetIsZoom()) return;
+
         if (Input.GetAxisRaw("Horizontal") == 0)
         {
             JoyInput = false;
