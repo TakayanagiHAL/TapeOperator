@@ -11,7 +11,7 @@ public class AntarcticBgm : MonoBehaviour
     {
         Sound = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
-        //Sound.PlayBgmByName("BGM_Antarctic");
+        Sound.PlayBgmByName("BGM_Antarctic");
     }
 
     // Update is called once per frame

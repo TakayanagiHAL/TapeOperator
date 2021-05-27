@@ -18,6 +18,7 @@ public class playercontroller : MonoBehaviour
 
 
 
+    private Rigidbody rb;
     private CharacterController controller;
 
     public Animator animator;
@@ -28,6 +29,7 @@ public class playercontroller : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
         stateMachine = new Framework.State.StateMachine<playercontroller>();
         stateMachine.Initalize(new Player.State.Idle(), this);
     }
@@ -50,8 +52,11 @@ public class playercontroller : MonoBehaviour
         {
             return;
         }
-        
+
+
         PlayerMovement();
+
+        this.transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f); 
     }
 
 
@@ -122,9 +127,12 @@ public class playercontroller : MonoBehaviour
         //移動値設定
         moveDirection *= speed;
 
+        controller.enabled = true;
+
         //地面にいるとき
         if (controller.isGrounded)
         {
+
             //押したとき
             if (isJumpCheck)
             {
@@ -133,6 +141,11 @@ public class playercontroller : MonoBehaviour
                 isJump = true;
                 YPower.y += JumpPower * 1;
 
+            }
+            
+            if(isJump && YPower.y < JumpPower * 1)
+            {
+                isJump = false;
             }
 
         }
@@ -146,13 +159,15 @@ public class playercontroller : MonoBehaviour
             //重力計算
             YPower.y -= gravity * Time.deltaTime;
 
-
         }
-       // Debug.Log(controller.isGrounded);
         controller.Move((moveDirection + YPower) * Time.deltaTime);
+
+        rb.velocity = Vector3.zero;
+        controller.enabled = false;
 
         //Debug.Log(controller.isGrounded);
     }
+
 
 }
 

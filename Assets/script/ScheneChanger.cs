@@ -10,21 +10,49 @@ public class ScheneChanger : MonoBehaviour
     public enum SCENE_NAME
     {
         STAGE_SELECT,
-        GAME_OVER,
         EGYPT_1,
         EGYPT_2,
         EGYPT_3,
+        EGYPT_4,
+        EGYPT_5,
         RUSSIA_1,
+        RUSSIA_2,
+        RUSSIA_3,
+        AFRICA_1,
+        AFRICA_2,
+        AFRICA_3,
+        ANTARCTIC_1,
+        ANTARCTIC_2,
+        AUSTRALIA_1,
+        AUSTRALIA_2,
+        AUSTRALIA_3,
+        NORWAY_1,
+        NORWAY_2,
+        NORWAY_3,
         SCENE_MAX
     }
 
     private static string[] scene_name = new string[] {
-        "Narusawa/N_scenes/StageSelect",
-        "Narusawa/N_scenes/GameOver",
-        "Scenes/Egypt/1-1/Egypt_Sunny_Sample",
-        "Scenes/Egypt/1-2/Egypt_1_2",
-        "Scenes/Egypt/1-3/Egypt_1_3",
-        "Scenes/Russia/Russia_1_1"
+        "Narusawa/N_scenes/Title/Title",
+        "Scenes/Egypt/1_1/Egypt_1_1",
+        "Scenes/Egypt/1_2/Egypt_1_2",
+        "Scenes/Egypt/1_3/Egypt_1_3",
+        "Scenes/Egypt/1_4/Egypt_1_4",
+        "Scenes/Egypt/1_5/Egypt_1_5",
+        "Scenes/Russia/2_1/Russia_2_1",
+        "Scenes/Russia/2_2/Russia_2_2",
+        "Scenes/Russia/2_3/Russia_2_3",
+        "Scenes/Africa/3_1/Africa_3_1",
+        "Scenes/Africa/3_2/Africa_3_2",
+        "Scenes/Africa/3_3/Africa_3_3",
+        "Scenes/Antartic/4_1/Antartic_4_1",
+        "Scenes/Antartic/4_2/Antartic_4_2",
+        "Scenes/Australia/5_1/Australia_5_1",
+        "Scenes/Australia/5_2/Australia_5_2",
+        "Scenes/Australia/5_3/Australia_5_3",
+        "Scenes/Norway/6_1/Norway_6_1",
+        "Scenes/Norway/6_2/Norway_6_2",
+        "Scenes/Norway/6_3/Norway_6_3"
     };
 
     // Start is called before the first frame update

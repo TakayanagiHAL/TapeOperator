@@ -11,7 +11,7 @@ public class WetherUI : MonoBehaviour
 
     [SerializeField] float wether_age = 10;
 
-    public WetherMark[] wetherMarks = new WetherMark[4];
+    [SerializeField] WetherMark[] wetherMarks = new WetherMark[4];
 
     public Sprite[] back_sprite = new Sprite[4];
 
@@ -31,10 +31,12 @@ public class WetherUI : MonoBehaviour
         back_image.sprite = back_sprite[0];
         front_image.sprite = front_sprite[0];
 
+        wetherMarks[0].InitMark();
         wetherMarks[0].SetSprite(true);
 
         for(int i = 1; i < 4; i++)
         {
+            wetherMarks[i].InitMark();
             wetherMarks[i].SetSprite(false);
         }
     }

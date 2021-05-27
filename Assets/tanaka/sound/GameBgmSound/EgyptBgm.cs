@@ -11,7 +11,7 @@ public class EgyptBgm : MonoBehaviour
     {
         Sound = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
-        //Sound.PlayBgmByName("BGM_Egypt");
+        Sound.PlayBgmByName("BGM_Egypt");
     }
 
     // Update is called once per frame

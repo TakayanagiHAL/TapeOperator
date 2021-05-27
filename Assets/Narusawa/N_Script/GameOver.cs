@@ -14,10 +14,10 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         //プレイヤーを探す
-        Player = GameObject.Find("player");
+       // Player = GameObject.Find("player");
 
         //通常時のキャンバスを探す
-        Canvas = GameObject.Find("Canvas");
+       // Canvas = GameObject.Find("Canvas");
 
         //ButtonScriptを探す
        // ButtonScript = GameObject.Find("ButtonScript");

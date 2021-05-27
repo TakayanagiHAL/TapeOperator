@@ -11,7 +11,7 @@ public class NorwayBgm : MonoBehaviour
     {
         Sound = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
-        //Sound.PlayBgmByName("BGM_Norway");
+        Sound.PlayBgmByName("BGM_Norway");
     }
 
     // Update is called once per frame

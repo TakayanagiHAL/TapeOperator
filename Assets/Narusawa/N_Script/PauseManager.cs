@@ -24,7 +24,7 @@ public class PauseManager : MonoBehaviour
     {
         Timekeeper.instance.Clock("Pause").localTimeScale = 0.0f;
         store = TimeManager.state;
-        //TimeManager.state = TimeManager.TimeState.TIME_POSE;
+        TimeManager.state = TimeManager.TimeState.TIME_PAUSE;
     }
 
     public static void TimeStart()

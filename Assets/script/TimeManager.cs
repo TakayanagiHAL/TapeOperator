@@ -4,19 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
-{   
-    public enum TimeState {
+{
+    public enum TimeState
+    {
         TIME_PLAY,
         TIME_STOP,
         TIME_BACK,
         TIME_FAST,
-        TIME_PAUSE,
-        TIME_GOAL
+        TIME_PAUSE
     };
 
     public static TimeState state;
 
     private int frame;
+
+    private int maxframe;
 
     private int day_count;
 
@@ -24,12 +26,20 @@ public class TimeManager : MonoBehaviour
 
     public Slider slider;
 
+    [SerializeField] Color halfmatercolor;
+
+    [SerializeField] Color pintchmatercolor;
+
+    [SerializeField] Image image;
+
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
         state = TimeState.TIME_PLAY;
         frame = 60 * 10;
+
+        maxframe = frame;
 
         is_day = true;
 
@@ -39,9 +49,9 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log(state);
+        // Debug.Log(state);
 
-        if (state == TimeState.TIME_PAUSE || state == TimeState.TIME_GOAL) return;
+        if (state == TimeState.TIME_PAUSE) return;
 
         if (frame > 0)
         {
@@ -49,7 +59,7 @@ public class TimeManager : MonoBehaviour
 
             bool rt = Input.GetButton("FastForward");
             bool lt = Input.GetButton("Rewind");
-            if (Input.GetKey(KeyCode.UpArrow) || (rt && lt)) 
+            if (Input.GetKey(KeyCode.UpArrow) || (rt && lt))
             {
                 //state = TimeState.TIME_STOP;
                 //frame--;
@@ -71,7 +81,7 @@ public class TimeManager : MonoBehaviour
                 SoundPlayer.GetSoundManagaer().PlaySeByName("SE_WeatherUI");
             }
 
-           
+
         }
         else
         {
@@ -93,10 +103,23 @@ public class TimeManager : MonoBehaviour
             day_count = 0;
         }
 
+
+
+        
+
+        if (((float)frame / (float)maxframe) < 0.3)
+        {
+            image.color = pintchmatercolor;
+        }
+        else if (((float)frame / (float)maxframe) < 0.5)
+        {
+            image.color = halfmatercolor;
+        }
+
         slider.SetValueWithoutNotify(frame);
     }
 
-    
+
 }
 
 public class BackData
@@ -111,9 +134,9 @@ public class BackData
 
     private Vector3[] back_data = new Vector3[data_count];
 
-   public void Init()
+    public void Init()
     {
-        for(int i = 0; i < data_count; i++)
+        for (int i = 0; i < data_count; i++)
         {
             back_data[i] = new Vector3();
         }
@@ -153,14 +176,14 @@ public class BackData
         if (current_data == old_data) current_data++;
 
         //Debug.Log(current_data);
-       // Debug.Log(back_data[current_data].position);
+        // Debug.Log(back_data[current_data].position);
 
         return back_data[current_data];
     }
 
     public void FillData(Vector3 data)
     {
-        for(int i = 0; i < data_count; i++)
+        for (int i = 0; i < data_count; i++)
         {
             back_data[i] = data;
         }

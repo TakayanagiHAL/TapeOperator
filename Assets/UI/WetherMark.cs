@@ -11,7 +11,7 @@ public class WetherMark : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        image = this.GetComponent<Image>();
+      
     }
 
     // Update is called once per frame
@@ -30,5 +30,10 @@ public class WetherMark : MonoBehaviour
         {
             image.sprite = sprite[1];
         }
+    }
+
+    public void InitMark()
+    {
+        image = this.GetComponent<Image>();
     }
 }

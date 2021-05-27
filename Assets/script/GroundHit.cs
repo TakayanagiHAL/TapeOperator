@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundHit : MonoBehaviour
 {
-    [SerializeField] ScheneChanger.SCENE_NAME scene;
+    [SerializeField] GameOver gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class GroundHit : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            ScheneChanger.ChangeScene((int)scene);
+            gameOver.DispGameOver();
         }
     }
 }

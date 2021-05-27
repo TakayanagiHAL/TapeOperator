@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_day: 0
   slider: {fileID: 0}
+  halfmatercolor: {r: 0.030577302, g: 0.5, b: 0, a: 1}
+  pintchmatercolor: {r: 0.5, g: 0.018443322, b: 0, a: 1}
+  image: {fileID: 0}
 --- !u!114 &4799391535669470880
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,9 +11,6 @@ public class PageChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //‰Šú‰»
-        PageNum = 0;
-
         //‘S•”‚ÌCanvas‚ğfalse‚É‚·‚é
         for(int i = 0; i < Pages.Length; i++)
         {

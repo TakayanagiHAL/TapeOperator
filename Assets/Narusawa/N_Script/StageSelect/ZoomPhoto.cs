@@ -47,6 +47,10 @@ public class ZoomPhoto : MonoBehaviour
         if (Input.GetButtonDown("Select"))
         {
             ZoomStart_Flag = true;
+
+            Fade fade = GameObject.Find("Config").GetComponent<Fade>();
+
+            fade.StartFade();
         }
 
         if (ZoomStart_Flag == true)
@@ -58,6 +62,8 @@ public class ZoomPhoto : MonoBehaviour
                 if (CamTns.position.y <= Target.y + 0.03f)
                 {
                     Debug.Log("ズーム終わり");
+
+                    
 
                     //波紋の表示
                     Vector2 CamTarget = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);

@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class PhotoSelect : MonoBehaviour
 {
-    [SerializeField] GameObject[] Photos;       //各ステージの写真をを入れる配列
+    [SerializeField] GameObject[] Photos;       //各ステージの写真を入れる配列
     [SerializeField] Vector3 SelectScale;       //選んでいる写真の拡大
-    [SerializeField] Material[] ClearMaterial;  //クリア後のマテリアル
+    [SerializeField] Color TextSelectColor;         //テキストの選択時のカラー
+    public static int SelectNum;                //選んでいる選択肢の番号
+    public static int PhotoMax;                 //1ページの写真数
     private Vector3[] InitScale;                //スケールの初期値
-    public static int SelectNum = 1;            //選んでいる選択肢の番号
-    public static int PhotoMax = 5;             //1ページの写真数
-    private GameObject Page1;                   //ページ1
-    private GameObject Page2;                   //ぺージ2
     private bool JoyInput = false;              //ジョイスティックの入力受け付け
 
     // Start is called before the first frame update
@@ -36,17 +34,13 @@ public class PhotoSelect : MonoBehaviour
             InitScale[i] += Photos[i].transform.localScale;
         }
 
-        //ページを取得
-        Page1 = GameObject.Find("Page1");
-        Page2 = GameObject.Find("Page2");
-
         //最初に選んでいる選択肢を少し大きくする
         Photos[SelectNum].transform.localScale = new Vector3(InitScale[SelectNum].x * SelectScale.x, 
                                                              InitScale[SelectNum].y * SelectScale.y, 
                                                              InitScale[SelectNum].z * SelectScale.z);
 
         //最初に選んでいる選択肢のシーン切り替えスクリプトをオンにする
-        Photos[SelectNum].GetComponent<ZoomPhoto>().enabled = true;
+        Photos[SelectNum].GetComponent<ZoomPhoto>().enabled = true;        
     }
 
     // Update is called once per frame
@@ -65,6 +59,11 @@ public class PhotoSelect : MonoBehaviour
             //正の入力で選択肢数を超えていない場合次の選択肢へ
             if (SelectNum < Photos.Length - 1)
             {
+                //最初の選択肢のテキストから次の選択肢に行く場合、テキストの色を黒にする
+                if (SelectNum == 0)
+                {
+                    Photos[SelectNum].GetComponent<Renderer>().material.color = Color.black;
+                }
 
                 //サイズを初期値に戻す
                 Photos[SelectNum].transform.localScale = InitScale[SelectNum];
@@ -82,6 +81,12 @@ public class PhotoSelect : MonoBehaviour
 
                 //選んでいる選択肢のシーン切り替えスクリプトをオンにする
                 Photos[SelectNum].GetComponent<ZoomPhoto>().enabled = true;
+
+                //一番最後の選択肢だったら文字色を変更する
+                if(SelectNum== Photos.Length - 1)
+                {
+                    Photos[SelectNum].GetComponent<Renderer>().material.color = TextSelectColor;
+                }
             }
         }
         else if (Input.GetKeyDown(KeyCode.A) || JoyInput == false && Input.GetAxisRaw("Horizontal") == -1)
@@ -91,6 +96,12 @@ public class PhotoSelect : MonoBehaviour
             //負の入力で0より大きい場合前の選択肢へ
             if (SelectNum >0)
             {
+                //最後の選択肢のテキストから前の選択肢に行く場合、テキストの色を黒にする
+                if (SelectNum == Photos.Length - 1)
+                {
+                    Photos[SelectNum].GetComponent<Renderer>().material.color = Color.black;
+                }
+
                 //サイズを初期値に戻す
                 Photos[SelectNum].transform.localScale = InitScale[SelectNum];
 
@@ -107,22 +118,13 @@ public class PhotoSelect : MonoBehaviour
 
                 //選んでいる選択肢のシーン切り替えスクリプトをオンにする
                 Photos[SelectNum].GetComponent<ZoomPhoto>().enabled = true;
+
+                //一番最初の選択肢だったら文字色を変更する
+                if (SelectNum == 0)
+                {
+                    Photos[SelectNum].GetComponent<Renderer>().material.color = TextSelectColor;
+                }
             }
-        }
-
-        if (Goal.ColorFlag == true)
-        {
-            if (Goal.StageNum < 5)
-            {
-                Page1.GetComponent<PhotoSelect>().Photos[Goal.StageNum  + 1].GetComponent<Renderer>().material = ClearMaterial[Goal.StageNum];
-                Debug.Log(Goal.StageNum);
-            }else if (Goal.StageNum < 10)
-            {
-                Page2.GetComponent<PhotoSelect>().Photos[(Goal.StageNum / 5)].GetComponent<Renderer>().material = ClearMaterial[Goal.StageNum];
-                Debug.Log(Goal.StageNum);
-            }
-
-
         }
     }
 

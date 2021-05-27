@@ -31,6 +31,7 @@ public class SignatureWork : MonoBehaviour
             else
             {
                 fade.FadeOut = true;
+                Fade.FadeFinish = false;
                 fade.StartFade();
             }
         }
