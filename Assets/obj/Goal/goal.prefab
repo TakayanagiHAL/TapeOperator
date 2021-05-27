@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: -1.26}
+  m_Size: {x: 2, y: 0.16044891, z: 2}
+  m_Center: {x: -0.48999995, y: -0.91977555, z: -1.2600001}
 --- !u!114 &2913713906128398395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032478547501255986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a6e9fadc36c7ae41ac4ab48c1421b57, type: 3}
+  m_Script: {fileID: 11500000, guid: af529f8646fa1bd4cbb0b5a4b0a16174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ThisStageNum: 0
@@ -168,8 +168,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4517548172411333072}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.5460193, y: 0, z: -0.07804752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5088452114851718908}
@@ -182,7 +182,7 @@ Transform:
   - {fileID: 5789052041912343235}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &8465380878320493973
 MeshFilter:
   m_ObjectHideFlags: 0

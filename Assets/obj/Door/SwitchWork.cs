@@ -11,6 +11,9 @@ public class SwitchWork : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        animator.SetFloat("speed", 1);
+        animator.Play("button", 0, 0.0f);
     }
 
     // Update is called once per frame
@@ -20,8 +23,8 @@ public class SwitchWork : MonoBehaviour
         {
             if (!is_on)
             {
-                animator.SetFloat("speed", 1);
-                animator.Play("button", 0, 0.0f);
+                animator.SetFloat("speed", -1);
+                animator.Play("button", 0, 1.0f / 60.0f * 5.0f);
                 is_on = true;
             }
         }
@@ -29,8 +32,9 @@ public class SwitchWork : MonoBehaviour
         {
             if (is_on)
             {
-                animator.SetFloat("speed", -1);
-                animator.Play("button", 0, 1.0f/60.0f*15.0f);
+              
+                animator.SetFloat("speed", 1);
+                animator.Play("button", 0, 0.0f);
                 is_on = false;
             }
         }

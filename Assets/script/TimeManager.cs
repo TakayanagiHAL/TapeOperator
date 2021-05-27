@@ -10,7 +10,8 @@ public class TimeManager : MonoBehaviour
         TIME_STOP,
         TIME_BACK,
         TIME_FAST,
-        TIME_PAUSE
+        TIME_PAUSE,
+        TIME_GOAL
     };
 
     public static TimeState state;
@@ -40,7 +41,7 @@ public class TimeManager : MonoBehaviour
     {
        // Debug.Log(state);
 
-        if (state == TimeState.TIME_PAUSE) return;
+        if (state == TimeState.TIME_PAUSE || state == TimeState.TIME_GOAL) return;
 
         if (frame > 0)
         {

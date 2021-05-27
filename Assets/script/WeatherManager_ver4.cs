@@ -31,7 +31,7 @@ public class WeatherManager_ver4 : MonoBehaviour
     private int WeatherScheduleIndex;
 
     //天候と残り時間表示
-    public GameObject WeatherAndRemainTimeView = null;
+   // public GameObject WeatherAndRemainTimeView = null;
 
     // Start is called before the first frame update
     void Start()
@@ -146,8 +146,8 @@ public class WeatherManager_ver4 : MonoBehaviour
         }
 
         //テキスト表示
-        Text WeatherAndRemainTimeView_Text = WeatherAndRemainTimeView.GetComponent<Text>();
-        WeatherAndRemainTimeView_Text.text = "天候" + weatherScheduleConfig.weathers[WeatherScheduleIndex] + "_残り時間" + (WeatherManagerNextTime - CurrentTime) + "_" + TimeManager.state;
+      //  Text WeatherAndRemainTimeView_Text = WeatherAndRemainTimeView.GetComponent<Text>();
+      //  WeatherAndRemainTimeView_Text.text = "天候" + weatherScheduleConfig.weathers[WeatherScheduleIndex] + "_残り時間" + (WeatherManagerNextTime - CurrentTime) + "_" + TimeManager.state;
     }
 
     public float GetCurrentTime()

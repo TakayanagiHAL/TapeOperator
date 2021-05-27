@@ -50,6 +50,7 @@ public class playercontroller : MonoBehaviour
         {
             return;
         }
+        
         PlayerMovement();
     }
 

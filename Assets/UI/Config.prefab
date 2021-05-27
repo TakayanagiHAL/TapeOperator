@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 6624793626158745701}
   - component: {fileID: 6624793626158745700}
   - component: {fileID: 6624793626158745696}
+  - component: {fileID: -6797481537433910336}
   m_Layer: 0
-  m_Name: Config (3)
+  m_Name: Config
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,4 +87,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadePanel: {fileID: 0}
   FadeOut: 1
-  speed: 0.005
+  speed: 0.01
+--- !u!114 &-6797481537433910336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6624793626158745707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a403f2c39a6684a95ebe0f60b07ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverCanvas: {fileID: 0}
+  Canvas: {fileID: 0}
+  Player: {fileID: 0}

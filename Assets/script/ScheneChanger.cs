@@ -52,7 +52,7 @@ public class ScheneChanger : MonoBehaviour
 
     static public void RetryScene()
     {
-        ChangeScene(ZoomPhoto.StageNum);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
   
 }

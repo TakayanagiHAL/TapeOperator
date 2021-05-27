@@ -14,8 +14,7 @@ public class ZoomPhoto : MonoBehaviour
     [SerializeField] GameObject SceneChanger;           //ScheneChangerがついたオブジェクトを取得
     [SerializeField] GameObject PhotoSelect_obj;        //PhotoSelectのついたオブジェクトを取得
     [SerializeField] ScheneChanger.SCENE_NAME scene;    //読み込むシーン
-    [SerializeField] Fade fade;
-    private static bool ZoomStart_Flag = false;    //ズームを始めるフラグ
+    private bool ZoomStart_Flag = false;    //ズームを始めるフラグ
     private Vector3 Target;                 //選択された写真の位置＋Distance
     private Transform CamTns;               //カメラのtransform取得用
     private Vector3 velocity;               //ズームする現在の速度
@@ -47,9 +46,7 @@ public class ZoomPhoto : MonoBehaviour
         //ズームをする
         if (Input.GetButtonDown("Select"))
         {
-            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Decision");
             ZoomStart_Flag = true;
-            fade.StartFade();
         }
 
         if (ZoomStart_Flag == true)
@@ -68,26 +65,14 @@ public class ZoomPhoto : MonoBehaviour
 
                     Invoke("SceneLoad", WaveTime);
                 }
-                if (Fade.FadeFinish)
-                {
-                    SoundPlayer.StopBGM();
-                    //次のシーンを読み込む
-                    StageNum = (int)scene;
-                    ScheneChanger.ChangeScene(StageNum);
-                    Fade.FadeFinish = false;
-                    ZoomStart_Flag = false;
-                }
             }
             else
             {
-                if (Fade.FadeFinish)
-                {
-                    //次のシーンを読み込む
-                    StageNum = (int)scene;
-                    ScheneChanger.ChangeScene(StageNum);
-                    Fade.FadeFinish = false;
-                    ZoomStart_Flag = false;
-                }
+                //次のシーンを読み込む
+                StageNum = (int)scene;
+                ScheneChanger.ChangeScene(StageNum);
+
+                ZoomStart_Flag = false;
             }
         }
         
@@ -97,11 +82,8 @@ public class ZoomPhoto : MonoBehaviour
     {
         //次のシーンを読み込む
         StageNum = (int)scene;
-       // ScheneChanger.ChangeScene((int)scene);
-    }
+        ScheneChanger.ChangeScene((int)scene);
 
-    public static bool GetIsZoom()
-    {
-        return ZoomStart_Flag;
+        ZoomStart_Flag = false;
     }
 }

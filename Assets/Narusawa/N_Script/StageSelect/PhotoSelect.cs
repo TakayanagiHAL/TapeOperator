@@ -52,8 +52,6 @@ public class PhotoSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ZoomPhoto.GetIsZoom()) return;
-
         if (Input.GetAxisRaw("Horizontal") == 0)
         {
             JoyInput = false;
@@ -67,8 +65,7 @@ public class PhotoSelect : MonoBehaviour
             //正の入力で選択肢数を超えていない場合次の選択肢へ
             if (SelectNum < Photos.Length - 1)
             {
-                SoundPlayer.GetSoundManagaer().StopSe("SE_Select");
-                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Select");
+
                 //サイズを初期値に戻す
                 Photos[SelectNum].transform.localScale = InitScale[SelectNum];
 
@@ -94,8 +91,6 @@ public class PhotoSelect : MonoBehaviour
             //負の入力で0より大きい場合前の選択肢へ
             if (SelectNum >0)
             {
-                SoundPlayer.GetSoundManagaer().StopSe("SE_Select");
-                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Select");
                 //サイズを初期値に戻す
                 Photos[SelectNum].transform.localScale = InitScale[SelectNum];
 
@@ -119,7 +114,7 @@ public class PhotoSelect : MonoBehaviour
         {
             if (Goal.StageNum < 5)
             {
-                Page1.GetComponent<PhotoSelect>().Photos[Goal.StageNum + 1].GetComponent<Renderer>().material = ClearMaterial[Goal.StageNum];
+                Page1.GetComponent<PhotoSelect>().Photos[Goal.StageNum  + 1].GetComponent<Renderer>().material = ClearMaterial[Goal.StageNum];
                 Debug.Log(Goal.StageNum);
             }else if (Goal.StageNum < 10)
             {

@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Russia/2_3/Russia_2_3.unity
     guid: 71b4d2f9603852746a425dde762175a1
   - enabled: 1
-    path: Assets/Scenes/Egypt/1_1/Egypt_1.unity
+    path: Assets/Scenes/Egypt/1_1/Egypt_1_1.unity
     guid: 31285e1445ee3aa46aaaf2807547fc8c
   - enabled: 1
     path: Assets/Scenes/Egypt/1_2/Egypt_1_2.unity

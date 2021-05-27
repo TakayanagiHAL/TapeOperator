@@ -28,30 +28,16 @@ public class PageChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //決定ボタンで本を開く
-        if (Input.GetButtonDown("Select"))
-            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Open");
-        {
-            anim.SetBool("OpenFlag", true);
-        }
-
-        //ジャンプボタンで本を閉じる
-        if (Input.GetButtonDown("Jump"))
-        {
-            Pages[PageNum].SetActive(false);   //今のページのGameObjectをfalseにする
-            anim.SetBool("CloseFlag", true);
-        }
+        
     }
 
 
     //前のページUIを呼ぶ関数
     public void BeforePageCall()
     {
-
         //ページ数が0より大きい場合
         if (PageNum > 0)
         {
-            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Open");
             Pages[PageNum].SetActive(false);       //今のページのGameObjectをfalseにする
             PageNum--;                              //ページ数を１つ減らす  
             anim.SetBool("BeforePageFlag", true);  //前のページのアニメーションをtrueにする
@@ -64,7 +50,6 @@ public class PageChanger : MonoBehaviour
     {
         if (PageNum < Pages.Length - 1) 
         {
-            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Open");
             Pages[PageNum].SetActive(false);   //今のページのGameObjectをfalseにする
             PageNum++;                          //ページ数を１つ増やす  
             anim.SetBool("NextPageFlag", true);    //次のページのアニメーションをtrueにする
@@ -74,5 +59,13 @@ public class PageChanger : MonoBehaviour
     public void CanvasDisp()
     {
         Pages[PageNum].SetActive(true);    //指定ページのGameObjectをtrueにする
+    }
+
+    //本を閉じる
+    public void CloseBook()
+    {
+        Pages[PageNum].SetActive(false);   //今のページのGameObjectをfalseにする
+        anim.SetBool("CloseFlag", true);
+        anim.SetBool("OpenFlag", false);
     }
 }

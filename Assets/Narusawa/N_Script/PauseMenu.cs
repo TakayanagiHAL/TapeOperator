@@ -25,7 +25,6 @@ public class PauseMenu : MonoBehaviour
         //メニューボタンが押された時
         if (Input.GetButtonDown("Menu"))
         {
-            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Pause");
             PauseEnable = !PauseEnable;     //ポーズ状態のフラグを切り替える
 
             if (PauseEnable == true)    //ポーズ中
