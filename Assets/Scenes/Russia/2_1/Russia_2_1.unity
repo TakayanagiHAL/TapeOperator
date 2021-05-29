@@ -10950,7 +10950,7 @@ PrefabInstance:
     - target: {fileID: 7451661737430491272, guid: 73d6c739e42965d48a52ce6e3ed0de7b, type: 3}
       propertyPath: weatherScheduleConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 9d9f854d21f56bf4294e7c166c3a1e43, type: 2}
+      objectReference: {fileID: 11400000, guid: 3f685bd14f8694746ad03adf5eba1e3c, type: 2}
     - target: {fileID: 7451661737430491272, guid: 73d6c739e42965d48a52ce6e3ed0de7b, type: 3}
       propertyPath: WeatherAndRemainTimeView
       value: 

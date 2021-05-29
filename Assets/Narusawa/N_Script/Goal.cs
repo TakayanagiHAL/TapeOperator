@@ -71,6 +71,7 @@ public class Goal : MonoBehaviour
 
             SoundPlayer.StopBGM();
             SoundPlayer.GetSoundManagaer().StopAllSe();
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Clear");
 
             GoalPanel.SetActive(true);
 

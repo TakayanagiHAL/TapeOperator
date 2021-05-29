@@ -177,11 +177,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 749784744443691893, guid: fe12233326b84484ca64e854588ca716, type: 3}
       propertyPath: m_Size.x
-      value: 2.6186073
+      value: 2.885865
+      objectReference: {fileID: 0}
+    - target: {fileID: 749784744443691893, guid: fe12233326b84484ca64e854588ca716, type: 3}
+      propertyPath: m_Size.y
+      value: 5.4343734
       objectReference: {fileID: 0}
     - target: {fileID: 749784744443691893, guid: fe12233326b84484ca64e854588ca716, type: 3}
       propertyPath: m_Center.x
-      value: -0.0021565272
+      value: 0.081736535
+      objectReference: {fileID: 0}
+    - target: {fileID: 749784744443691893, guid: fe12233326b84484ca64e854588ca716, type: 3}
+      propertyPath: m_Center.y
+      value: -2.6671865
       objectReference: {fileID: 0}
     - target: {fileID: 855483165289768046, guid: fe12233326b84484ca64e854588ca716, type: 3}
       propertyPath: m_UseGravity

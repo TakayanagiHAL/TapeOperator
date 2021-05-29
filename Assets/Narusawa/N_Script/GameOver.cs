@@ -46,6 +46,8 @@ public class GameOver : MonoBehaviour
 
         //プレイヤーの動きを止める
         Player.GetComponent<playercontroller>().enabled = false;
+
+        SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Gameover");
     }
 
     //ステージの読み込み直し

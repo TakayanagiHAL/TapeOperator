@@ -78,6 +78,9 @@ public class ZoomPhoto : MonoBehaviour
                 StageNum = (int)scene;
                 ScheneChanger.ChangeScene(StageNum);
 
+                Fade.FadeFinish = false;
+                Fade.FadeStart = false;
+
                 ZoomStart_Flag = false;
             }
         }

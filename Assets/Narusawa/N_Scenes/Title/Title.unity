@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 658322}
   - component: {fileID: 658323}
   - component: {fileID: 658324}
+  - component: {fileID: 658325}
   m_Layer: 0
   m_Name: Config
   m_TagString: Untagged
@@ -223,7 +224,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadePanel: {fileID: 2036423924}
   FadeOut: 1
-  speed: 0.0003
+  speed: 0.003
+--- !u!114 &658325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6698beedc800b124a92439447caa384f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4784597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5502728159442180415, guid: 7d333682bc5bad147a5dbbdc104e943a, type: 3}
