@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 8828594811529396746}
   - component: {fileID: 3199056431406700656}
   - component: {fileID: 2863310434463927799}
+  - component: {fileID: 1146707555275005963}
   m_Layer: 0
   m_Name: gimmicks_waterice_fourfive_water
   m_TagString: Untagged
@@ -168,6 +169,19 @@ MonoBehaviour:
   move_speed: 0.0005
   max_pos_y: 0.8698015
   min_pos_y: 0
+--- !u!65 &1146707555275005963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200677342773860528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.165863, y: 5.0551705, z: 1.9559166}
+  m_Center: {x: 0.011275495, y: -2.5503738, z: 0.02535212}
 --- !u!1001 &7563167160864492768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -265,6 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6445927738879699926, guid: fe12233326b84484ca64e854588ca716, type: 3}
+    - {fileID: 749784744443691893, guid: fe12233326b84484ca64e854588ca716, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe12233326b84484ca64e854588ca716, type: 3}
 --- !u!4 &1964041107350117586 stripped
 Transform:

@@ -25,6 +25,7 @@ public class BeforePage : MonoBehaviour
 
             //前のページを表示
             PageChanger.GetComponent<PageChanger>().BeforePageCall();
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Open");
         }
 
     }

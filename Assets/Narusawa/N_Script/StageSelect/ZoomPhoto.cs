@@ -14,7 +14,7 @@ public class ZoomPhoto : MonoBehaviour
     [SerializeField] GameObject SceneChanger;           //ScheneChangerがついたオブジェクトを取得
     [SerializeField] GameObject PhotoSelect_obj;        //PhotoSelectのついたオブジェクトを取得
     [SerializeField] ScheneChanger.SCENE_NAME scene;    //読み込むシーン
-    private bool ZoomStart_Flag = false;    //ズームを始めるフラグ
+    static private bool ZoomStart_Flag = false;    //ズームを始めるフラグ
     private Vector3 Target;                 //選択された写真の位置＋Distance
     private Transform CamTns;               //カメラのtransform取得用
     private Vector3 velocity;               //ズームする現在の速度
@@ -47,6 +47,8 @@ public class ZoomPhoto : MonoBehaviour
         if (Input.GetButtonDown("Select"))
         {
             ZoomStart_Flag = true;
+
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Select");
 
             Fade fade = GameObject.Find("Config").GetComponent<Fade>();
 
@@ -94,5 +96,10 @@ public class ZoomPhoto : MonoBehaviour
         ScheneChanger.ChangeScene((int)scene);
 
         ZoomStart_Flag = false;
+    }
+
+    static public bool IsZoom()
+    {
+        return ZoomStart_Flag;
     }
 }

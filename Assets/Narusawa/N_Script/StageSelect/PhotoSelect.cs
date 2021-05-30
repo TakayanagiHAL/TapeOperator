@@ -51,6 +51,8 @@ public class PhotoSelect : MonoBehaviour
             JoyInput = false;
         }
 
+        if (ZoomPhoto.IsZoom()) return;
+
         //“ü—Í‚ðŽó‚¯Žæ‚é
         if (Input.GetKeyDown(KeyCode.D) || JoyInput == false && Input.GetAxisRaw("Horizontal") == 1) 
         {

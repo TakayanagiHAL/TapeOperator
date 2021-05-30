@@ -27,6 +27,8 @@ public class NextPage : MonoBehaviour
 
             //次のページを表示
             PageChanger.GetComponent<PageChanger>().NextPageCall();
+
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Open");
         }
     }
 }
