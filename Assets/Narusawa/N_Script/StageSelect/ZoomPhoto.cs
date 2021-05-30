@@ -44,11 +44,11 @@ public class ZoomPhoto : MonoBehaviour
     void Update()
     {
         //ÉYÅ[ÉÄÇÇ∑ÇÈ
-        if (Input.GetButtonDown("Select"))
+        if (Input.GetButtonDown("Select") && !ZoomStart_Flag)
         {
             ZoomStart_Flag = true;
 
-            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Select");
+            SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Decision");
 
             Fade fade = GameObject.Find("Config").GetComponent<Fade>();
 

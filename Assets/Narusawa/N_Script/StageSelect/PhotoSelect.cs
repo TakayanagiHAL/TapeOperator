@@ -84,8 +84,10 @@ public class PhotoSelect : MonoBehaviour
                 //選んでいる選択肢のシーン切り替えスクリプトをオンにする
                 Photos[SelectNum].GetComponent<ZoomPhoto>().enabled = true;
 
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Select");
+
                 //一番最後の選択肢だったら文字色を変更する
-                if(SelectNum== Photos.Length - 1)
+                if (SelectNum== Photos.Length - 1)
                 {
                     Photos[SelectNum].GetComponent<Renderer>().material.color = TextSelectColor;
                 }
@@ -120,6 +122,8 @@ public class PhotoSelect : MonoBehaviour
 
                 //選んでいる選択肢のシーン切り替えスクリプトをオンにする
                 Photos[SelectNum].GetComponent<ZoomPhoto>().enabled = true;
+
+                SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Select");
 
                 //一番最初の選択肢だったら文字色を変更する
                 if (SelectNum == 0)
