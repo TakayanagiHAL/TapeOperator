@@ -39,6 +39,8 @@ public class PageChanger : MonoBehaviour
             PageNum--;                              //ページ数を１つ減らす  
             anim.SetBool("BeforePageFlag", true);  //前のページのアニメーションをtrueにする
         }
+
+        PhotoSelect.SetPhotMax(PageNum);
     }
 
 
@@ -51,6 +53,7 @@ public class PageChanger : MonoBehaviour
             PageNum++;                          //ページ数を１つ増やす  
             anim.SetBool("NextPageFlag", true);    //次のページのアニメーションをtrueにする
         }
+        PhotoSelect.SetPhotMax(PageNum);
     }
 
     public void CanvasDisp()

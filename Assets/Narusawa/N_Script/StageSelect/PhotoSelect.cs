@@ -153,4 +153,21 @@ public class PhotoSelect : MonoBehaviour
         //最初に選んでいる選択肢のシーン切り替えスクリプトをオンにする
         Photos[1].GetComponent<ZoomPhoto>().enabled = true;
     }
+
+    static public void SetPhotMax(int page)
+    {
+        if (page == 0)
+        {
+            PhotoMax = 7;
+        }else if (page == 6)
+        {
+            PhotoMax = 2;
+        }else if(page == 3)
+        {
+            PhotoMax = 4;
+        }else
+        {
+            PhotoMax = 5;
+        }
+    }
 }

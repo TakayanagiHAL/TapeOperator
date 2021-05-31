@@ -10148,7 +10148,7 @@ PrefabInstance:
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: back_sprite.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 4307db9c6f1a24141b9ce152d818082f, type: 3}
+      objectReference: {fileID: 21300000, guid: f4709abf2462bca44a51b912efa9b8c0, type: 3}
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: front_sprite.Array.data[0]
       value: 

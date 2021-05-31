@@ -18,7 +18,7 @@ public class TitleReturn : MonoBehaviour
     void Update()
     {
         //ˆê”ÔÅ‰‚ğ‘I‘ğ‚µ‚Ä‚¢‚éê‡
-        if (PhotoSelect.SelectNum == 0 && Input.GetButtonDown("Select"))
+        if (((PhotoSelect.SelectNum == 0 && PageChanger.PageNum == 0) || (PageChanger.PageNum == 6 && PhotoSelect.SelectNum == 1))&& Input.GetButtonDown("Select"))
         {
             PhotoSelect_obj.GetComponent<PhotoSelect>().ResetScale();
 

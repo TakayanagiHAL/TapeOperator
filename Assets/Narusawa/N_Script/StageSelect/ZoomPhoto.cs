@@ -46,6 +46,8 @@ public class ZoomPhoto : MonoBehaviour
         //ÉYÅ[ÉÄÇÇ∑ÇÈ
         if (Input.GetButtonDown("Select") && !ZoomStart_Flag)
         {
+            if (scene == ScheneChanger.SCENE_NAME.SCENE_MAX) return;
+
             ZoomStart_Flag = true;
 
             SoundPlayer.GetSoundManagaer().PlaySeByName("SE_Decision");

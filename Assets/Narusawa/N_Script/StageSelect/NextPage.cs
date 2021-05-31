@@ -18,6 +18,8 @@ public class NextPage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PhotoSelect.SelectNum);
+        Debug.Log(PhotoSelect.PhotoMax - 1);
         //ˆê”ÔÅŒã‚ğ‘I‘ğ‚µ‚Ä‚¢‚éê‡
         if (PhotoSelect.SelectNum == PhotoSelect.PhotoMax - 1 && Input.GetButtonDown("Select")) 
         {
