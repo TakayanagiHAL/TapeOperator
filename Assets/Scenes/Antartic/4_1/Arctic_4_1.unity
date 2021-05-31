@@ -1545,7 +1545,7 @@ PrefabInstance:
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: back_sprite.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc880f44704bc441bf7aa8a79c0cee6, type: 3}
+      objectReference: {fileID: 21300000, guid: f4709abf2462bca44a51b912efa9b8c0, type: 3}
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: back_sprite.Array.data[2]
       value: 
@@ -1561,7 +1561,7 @@ PrefabInstance:
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: front_sprite.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 9ccb57d611f8a9149bb78f27e0776d74, type: 3}
+      objectReference: {fileID: 21300000, guid: 9345fd24f4c78c846aaa11d9e1edb3aa, type: 3}
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: front_sprite.Array.data[2]
       value: 
@@ -1573,11 +1573,11 @@ PrefabInstance:
     - target: {fileID: 7263825894754340165, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: sprite.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 71e133aab76d6954fac08e0dfc263071, type: 3}
+      objectReference: {fileID: 21300000, guid: 39a930fce86db994da7a8148ec634046, type: 3}
     - target: {fileID: 7263825894754340165, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: sprite.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: b7c33be347521d345ba14361fb06ab04, type: 3}
+      objectReference: {fileID: 21300000, guid: 4b85057c5fbe52346b75961830f3154e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
 --- !u!114 &203561079 stripped
@@ -6275,7 +6275,7 @@ PrefabInstance:
     - target: {fileID: 7451661737430491272, guid: 73d6c739e42965d48a52ce6e3ed0de7b, type: 3}
       propertyPath: weatherScheduleConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 9cc1137dc8590314e95a44b86dbc523f, type: 2}
+      objectReference: {fileID: 11400000, guid: ff7c864bb7968bf4eab2e70d4db1b693, type: 2}
     - target: {fileID: 7451661737430491272, guid: 73d6c739e42965d48a52ce6e3ed0de7b, type: 3}
       propertyPath: WeatherAndRemainTimeView
       value: 
