@@ -995,7 +995,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 641940674}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!4 &155169983 stripped
@@ -2970,7 +2970,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 932167174}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &694071737
@@ -4580,7 +4580,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 2118269574}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1011732912
@@ -4804,7 +4804,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 33158042}
-  scene: 13
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!4 &1058626419 stripped
@@ -5920,7 +5920,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 641940674}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!1 &1230503356
@@ -6522,7 +6522,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 932167174}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1310967347
@@ -6660,7 +6660,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 594704249}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1317214746
@@ -7408,7 +7408,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 594704249}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1449500063
@@ -8461,7 +8461,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 33158042}
-  scene: 0
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1637252265
@@ -8897,7 +8897,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 1847813473}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1698603034
@@ -9253,7 +9253,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 2118269574}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1792188905
@@ -9386,7 +9386,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 373641700}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1835506414
@@ -10192,7 +10192,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 373641700}
-  scene: 11
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!114 &1944333644
@@ -11380,7 +11380,7 @@ MonoBehaviour:
   ZoomTime: 1.5
   SceneChanger: {fileID: 658318}
   PhotoSelect_obj: {fileID: 33158042}
-  scene: 0
+  scene: 20
   WaveTime: 0
   MaxWaveScale: 60
 --- !u!64 &2134819078
