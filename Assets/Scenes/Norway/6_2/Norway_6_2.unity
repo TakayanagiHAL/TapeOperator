@@ -8461,7 +8461,7 @@ PrefabInstance:
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: back_sprite.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 5fc880f44704bc441bf7aa8a79c0cee6, type: 3}
+      objectReference: {fileID: 21300000, guid: cf71e3ab062a25542a269fbd5df26f4d, type: 3}
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: back_sprite.Array.data[2]
       value: 
@@ -8477,7 +8477,7 @@ PrefabInstance:
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: front_sprite.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 9ccb57d611f8a9149bb78f27e0776d74, type: 3}
+      objectReference: {fileID: 21300000, guid: c94ce57585f46e1439231605c1a5a857, type: 3}
     - target: {fileID: 7263825894604560161, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: front_sprite.Array.data[2]
       value: 
@@ -8489,11 +8489,11 @@ PrefabInstance:
     - target: {fileID: 7263825894754340165, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: sprite.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 71e133aab76d6954fac08e0dfc263071, type: 3}
+      objectReference: {fileID: 21300000, guid: c5015236d55f348488878b112524f33c, type: 3}
     - target: {fileID: 7263825894754340165, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
       propertyPath: sprite.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: b7c33be347521d345ba14361fb06ab04, type: 3}
+      objectReference: {fileID: 21300000, guid: 3521d03573d3ab94ba901a1e8d7c0689, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808b7d8fa47097140a431dee77f876b5, type: 3}
 --- !u!1 &1231926222 stripped
